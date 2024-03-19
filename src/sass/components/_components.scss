@@ -1,0 +1,19 @@
+.kd-block {
+    z-index: 2;
+    position: relative;
+
+    .wrapper {
+        padding-left: var(--side-padding);
+        padding-right: var(--side-padding);
+    }
+
+    &.alignfull {
+        .wrapper {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@import "./buttons";
+@import './cookie-notice'

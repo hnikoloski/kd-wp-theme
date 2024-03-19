@@ -1,0 +1,35 @@
+@import '../../sass/helpers/variables.scss';
+
+.kd-hero-block {
+    position: relative;
+
+    &__slide {
+        background: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+        padding: 15.2rem 8.3rem;
+    }
+
+    &__pagination {
+        text-align: center;
+        transform: translateY(-3.5rem);
+        z-index: 1;
+        position: relative;
+
+        .swiper-pagination-bullet {
+            width: 1.2rem;
+            height: 1.2rem;
+            background: #CBCBCB;
+            opacity: 1;
+            transition: all 0.3s ease-in-out;
+
+            &:not(:last-of-type) {
+                margin-right: 1rem;
+            }
+
+            &-active {
+                background: $red;
+            }
+        }
+    }
+}

@@ -25,6 +25,19 @@ fs.readdirSync(blocksDir).forEach(file => {
 export default defineConfig({
     base: '/wp-content/themes/kristina-damil/dist/',
     plugins: [
+        compressionPlugin({
+            verbose: true,
+            disable: false,
+            threshold: 10240,
+            algorithm: 'gzip',
+            ext: '.gz',
+        }),
+        viteImagemin({
+            gifsicle: {},
+            mozjpeg: {},
+            optipng: {},
+            svgo: {},
+        }),
 
     ],
     build: {

@@ -33,15 +33,15 @@ if (!empty($block['align'])) {
                 $button = get_sub_field('hero_slide_button');
                 ?>
                 <div class="swiper-slide kd-hero-block__slide" style="--bg-image:url('<?= $image['url']; ?>');">
-                    <div class="hero-slide__content">
+                    <div class="kd-hero-block__slide__content">
                         <?php if ($title) : ?>
-                            <h2 class="hero-slide__title"><?= $title; ?></h2>
+                            <h2 class="kd-hero-block__slide__content__title"><?= $title; ?></h2>
                         <?php endif; ?>
                         <?php if ($description) : ?>
                             <?= $description; ?>
                         <?php endif; ?>
                         <?php if ($button) : ?>
-                            <a href="<?= $button['url']; ?>" class="button button--primary"><?= $button['title']; ?></a>
+                            <a href="<?= $button['url']; ?>" class="kd-hero-block__slide__content__button button button--primary"><?= $button['title']; ?></a>
                         <?php endif; ?>
                     </div>
                 </div>

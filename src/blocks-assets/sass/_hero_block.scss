@@ -8,13 +8,24 @@
         background-size: cover;
         background-position: center;
         padding: 15.2rem 8.3rem;
+
+        &__content {
+            max-width: 70rem;
+
+            &__title {
+                font-size: 7.8rem;
+                margin-bottom: 8rem;
+                color: #000;
+                line-height: 1.03;
+            }
+        }
     }
 
     &__pagination {
         text-align: center;
         transform: translateY(-3.5rem);
         z-index: 1;
-        position: relative;
+        position: absolute;
 
         .swiper-pagination-bullet {
             width: 1.2rem;

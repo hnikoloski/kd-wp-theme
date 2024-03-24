@@ -69,6 +69,23 @@ function tamtam_acf_init_block_types()
 
             )
         );
+
+        // Our Partners block
+        acf_register_block_type(
+            array(
+                'name'              => 'our-partners',
+                'title'             => __('Our Partners'),
+                'description'       => __('A block to display our partners.'),
+                'render_template'   => 'block-templates/our-partners-block.php',
+                'category'          => 'kd',
+                'icon'              => 'kd-logo',
+                'keywords'          => array('our partners', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+
+            )
+        );
     }
 }
 add_action('acf/init', 'tamtam_acf_init_block_types');

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Hero Block Template.
+ * Our Partners Block Template.
  */
 
 $anchor = '';

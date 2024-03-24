@@ -86,6 +86,23 @@ function tamtam_acf_init_block_types()
 
             )
         );
+
+        // Image CTA block
+        acf_register_block_type(
+            array(
+                'name'              => 'image-cta',
+                'title'             => __('Image CTA'),
+                'description'       => __('A block to display image CTA.'),
+                'render_template'   => 'block-templates/image-cta-block.php',
+                'category'          => 'kd',
+                'icon'              => 'kd-logo',
+                'keywords'          => array('image cta', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+
+            )
+        );
     }
 }
 add_action('acf/init', 'tamtam_acf_init_block_types');

@@ -32,24 +32,6 @@ function tamtam_editor_styles()
 add_action('enqueue_block_editor_assets', 'tamtam_editor_styles');
 
 
-// Helper function to get asset path from manifest file
-function tamtam_get_asset_path($filename)
-{
-    $manifest_path = get_template_directory() . '/dist/.vite/manifest.json';
-    if (file_exists($manifest_path)) {
-        $manifest = json_decode(file_get_contents($manifest_path), true);
-        // Construct the key as it appears in the manifest. Adjust if your structure is different.
-        $key = 'src/blocks-assets/scripts/' . $filename;
-        if (isset($manifest[$key])) {
-            $file_info = $manifest[$key];
-            $file_path = get_template_directory_uri() . '/dist/' . $file_info['file'];
-            return $file_path;
-        }
-    }
-    return null; // Fallback in case the file is not found in the manifest
-}
-
-
 function tamtam_acf_init_block_types()
 {
     if (function_exists('acf_register_block_type')) {
@@ -66,6 +48,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
+                'enqueue_style'     => get_template_directory_uri() . '/dist/hero_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/hero_block.js',
 
             )
         );
@@ -83,6 +67,9 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
+                'enqueue_style'     => get_template_directory_uri() . '/dist/our_partners_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/our_partners_block.js',
+
 
             )
         );
@@ -100,9 +87,24 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
+                'enqueue_style'     => get_template_directory_uri() . '/dist/image_cta_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/image_cta_block.js',
 
             )
         );
     }
 }
 add_action('acf/init', 'tamtam_acf_init_block_types');
+
+
+add_filter('script_loader_tag', function ($tag, $handle, $src) {
+    // Prefix to check in the script handles
+    $prefix = 'tamtam-script';
+
+    // Check if the handle starts with your prefix
+    if (substr($handle, 0, strlen($prefix)) === $prefix) {
+        // Modify the script tag to include type="module"
+        $tag = '<script id="' . $handle . '" src="' . $src . '" type="module"></script>';
+    }
+    return $tag;
+}, 10, 3);

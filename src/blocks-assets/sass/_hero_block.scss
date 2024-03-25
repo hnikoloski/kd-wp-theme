@@ -7,7 +7,7 @@
         background: var(--bg-image);
         background-size: cover;
         background-position: center;
-        padding: 15.2rem 8.3rem;
+        padding: 15.2rem $sidePadding;
 
         &__content {
             max-width: 70rem;

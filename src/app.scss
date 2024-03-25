@@ -4,7 +4,7 @@
 
         &:before {
             content: "";
-            background: url("../assets/images/kd-dark-bg.png");
+            background: url("../assets/images/tamtam-dark-bg.png");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -25,10 +25,6 @@
 @import "./sass/layout/layout";
 
 // Libs
-
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
 
 @import "./sass/components/components";
 @import "./sass/pages/pages";

@@ -1,0 +1,3 @@
+/*! For license information please see hero_block.js.LICENSE.txt */
+"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([["hero_block"],{2162:(e,r,o)=>{o.r(r);var a=o(950),l=o(8596);o(5103),o(3861),o(4412);jQuery(document).ready((function(e){new a.default(".kd-hero-block-slider",{modules:[l.Pagination],slidesPerView:1,loop:!0,pagination:{el:".kd-hero-block__pagination",clickable:!0}})}))},4412:(e,r,o)=>{o.r(r)}},e=>{e.O(0,["npm..pnpm"],(()=>{return r=2162,e(e.s=r);var r}));e.O()}]);
+//# sourceMappingURL=hero_block.js.map

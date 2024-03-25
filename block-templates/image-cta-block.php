@@ -26,20 +26,21 @@ if (!empty($block['align'])) {
             <?php if (get_field('title')) : ?>
                 <?php
                 $title_tag = get_field('title_tag') ? get_field('title_tag') : 'h2';
+                $title_underline = get_field('title_underline') ? 'kd-image-cta-block__content__title--underline' : '';
                 ?>
                 <?php
-                printf('<%s class="kd-image-cta-block__content__title">%s</%s>', $title_tag, get_field('title'), $title_tag);
+                printf('<%s class="kd-image-cta-block__content__title %s">%s</%s>', $title_tag, $title_underline, get_field('title'), $title_tag);
                 ?>
             <?php endif; ?>
             <?php
             if (get_field('description')) :
             ?>
-                <p class="kd-image-cta-block__content__description"><?= get_field('description'); ?></p>
+                <div class="kd-image-cta-block__content__description"><?= get_field('description'); ?></div>
             <?php endif; ?>
             <?php
             if (get_field('button')) :
             ?>
-                <a href="<?= get_field('button')['url']; ?>" class="kd-image-cta-block__content__button button button--clean"><?= get_field('button')['title']; ?></a>
+                <a href="<?= get_field('button')['url']; ?>" class="kd-image-cta-block__content__button button button--just-text color-red"><?= get_field('button')['title']; ?></a>
             <?php endif; ?>
         </div>
         <?php

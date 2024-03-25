@@ -1,0 +1,3 @@
+/*! For license information please see our_partners_block.js.LICENSE.txt */
+"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([["our_partners_block"],{3210:(e,o,r)=>{r.r(o);var t=r(950),a=r(8596);r(5103),r(3096);jQuery(document).ready((function(e){new t.default(".kd-partnes-block-slider",{modules:[a.Autoplay],slidesPerView:5.5,loop:!0,autoplay:{delay:2,disableOnInteraction:!1},speed:5e3,freeMode:!0,freeModeMomentum:!1,freeModeMomentumRatio:.5,freeModeMomentumVelocityRatio:.5,allowTouchMove:!1})}))},3096:(e,o,r)=>{r.r(o)}},e=>{e.O(0,["npm..pnpm"],(()=>{return o=3210,e(e.s=o);var o}));e.O()}]);
+//# sourceMappingURL=our_partners_block.js.map

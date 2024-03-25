@@ -18,8 +18,6 @@ if (!empty($block['align'])) {
     $class_name .= ' align' . $block['align'];
 }
 
-
-
 ?>
 
 <div <?= $anchor; ?> class="<?= esc_attr($class_name); ?>">

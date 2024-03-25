@@ -1,2 +1,1 @@
-/*! For license information please see image_cta_block.js.LICENSE.txt */
-"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([["image_cta_block"],{5500:(s,e,r)=>{r.r(e);r(36)},36:(s,e,r)=>{r.r(e)}},s=>{var e;e=5500,s(s.s=e)}]);
+"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([[391],{500:()=>{}},s=>{var e;e=500,s(s.s=e)}]);

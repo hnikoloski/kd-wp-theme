@@ -1,0 +1,44 @@
+{
+  "_swiper-!~{005}~.js": {
+    "file": "assets/swiper-Be9b3THL.css",
+    "src": "_swiper-!~{005}~.js"
+  },
+  "_swiper-BbGndk16.js": {
+    "file": "assets/swiper-BbGndk16.js",
+    "css": [
+      "assets/swiper-Be9b3THL.css"
+    ]
+  },
+  "src/app.js": {
+    "file": "assets/app-oa15pG95.js",
+    "src": "src/app.js",
+    "isEntry": true
+  },
+  "src/app.scss": {
+    "file": "assets/global_style-BGJZ4Dcq.css",
+    "src": "src/app.scss",
+    "isEntry": true
+  },
+  "src/blocks-assets/scripts/hero_block.js": {
+    "file": "assets/hero_block-C3OcJFL0.js",
+    "src": "src/blocks-assets/scripts/hero_block.js",
+    "isEntry": true,
+    "imports": [
+      "_swiper-BbGndk16.js"
+    ],
+    "css": [
+      "assets/hero_block-CaZgf-Nd.css"
+    ]
+  },
+  "src/blocks-assets/scripts/our_partners_block.js": {
+    "file": "assets/our_partners_block-9-GC_in1.js",
+    "src": "src/blocks-assets/scripts/our_partners_block.js",
+    "isEntry": true,
+    "imports": [
+      "_swiper-BbGndk16.js"
+    ],
+    "css": [
+      "assets/our_partners_block-BkBIURDN.css"
+    ]
+  }
+}

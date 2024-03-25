@@ -11,6 +11,8 @@
     }
 
     &__slide {
+        width: fit-content !important;
+
         &__content {
             width: auto;
             height: 5rem;

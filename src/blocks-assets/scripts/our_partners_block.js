@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
             disableOnInteraction: false, // Keep autoplaying when the slider is interacted with
         },
         speed: 5000,
-
+        spaceBetween: 50,
         freeMode: true,
         freeModeMomentum: false,
         freeModeMomentumRatio: 0.5,

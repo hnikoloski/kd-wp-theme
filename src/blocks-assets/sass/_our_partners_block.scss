@@ -4,14 +4,8 @@
     background: #fff;
     padding: 5rem 0;
 
-    &-slider {
-        .swiper-wrapper {
-            transition-timing-function: linear !important;
-        }
-    }
 
     &__slide {
-        width: fit-content !important;
 
         &__content {
             width: auto;

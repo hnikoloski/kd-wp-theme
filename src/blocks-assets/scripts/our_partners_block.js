@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
         loop: true,
         // Autoplay settings
         autoplay: {
-            delay: 2, // 2 delay for continuous play 0 buggs out sometimes
+            delay: 2000, // 200 delay for continuous play 0 buggs out sometimes
             disableOnInteraction: false, // Keep autoplaying when the slider is interacted with
         },
         speed: 5000,

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([[391],{500:()=>{}},s=>{var e;e=500,s(s.s=e)}]);

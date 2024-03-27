@@ -1,4 +1,4 @@
-@import '../../sass/helpers/variables.scss';
+@use '../../sass/helpers/variables' as vars;
 
 .kd-hero-block {
     position: relative;
@@ -7,7 +7,7 @@
         background: var(--bg-image);
         background-size: cover;
         background-position: center;
-        padding: 15.2rem $sidePadding;
+        padding: 15.2rem vars.$sidePadding;
 
         &__content {
             max-width: 70rem;
@@ -39,7 +39,7 @@
             }
 
             &-active {
-                background: $red;
+                background: vars.$red;
             }
         }
     }

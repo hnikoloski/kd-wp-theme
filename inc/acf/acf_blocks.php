@@ -27,7 +27,7 @@ add_filter('block_categories_all', function ($categories) {
 // Block Editor styles
 function tamtam_editor_styles()
 {
-    wp_enqueue_style('tamtam-editor-styles', get_template_directory_uri() . '/dist/admin/editor.css', false, TAMTAM_VERSION, 'all');
+    wp_enqueue_style('tamtam-editor-styles', get_template_directory_uri() . '/dist/assets/admin/editor.css', false, TAMTAM_VERSION, 'all');
 }
 add_action('enqueue_block_editor_assets', 'tamtam_editor_styles');
 
@@ -48,8 +48,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/hero_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/hero_block.js',
+                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/hero_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/hero_block.js',
 
             )
         );
@@ -67,10 +67,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/our_partners_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/our_partners_block.js',
-
-
+                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/our_partners_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/our_partners_block.js',
             )
         );
 
@@ -87,9 +85,27 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/image_cta_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/image_cta_block.js',
+                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/image_cta_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/image_cta_block.js',
 
+            )
+        );
+
+        // Filterable Products block
+        acf_register_block_type(
+            array(
+                'name'              => 'filterable-products',
+                'title'             => __('Filterable Products'),
+                'description'       => __('A block to display filterable products.'),
+                'render_template'   => 'block-templates/filterable-products-block.php',
+                'category'          => 'kd',
+                'icon'              => 'kd-logo',
+                'keywords'          => array('filterable products', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/filterable_products_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/filterable_products_block.js',
             )
         );
     }
@@ -99,7 +115,7 @@ add_action('acf/init', 'tamtam_acf_init_block_types');
 
 add_filter('script_loader_tag', function ($tag, $handle, $src) {
     // Prefix to check in the script handles
-    $prefix = 'tamtam-script';
+    $prefix = 'block-acf-';
 
     // Check if the handle starts with your prefix
     if (substr($handle, 0, strlen($prefix)) === $prefix) {

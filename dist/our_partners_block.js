@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([[465],{210:(e,o,t)=>{var r=t(305),s=t(927);jQuery(document).ready((function(e){new r.A(".kd-partnes-block-slider",{modules:[s.Ij],slidesPerView:5.5,loop:!0,autoplay:{delay:2e3,disableOnInteraction:!1},speed:5e3,spaceBetween:50,freeMode:!0,freeModeMomentum:!1,freeModeMomentumRatio:.5,freeModeMomentumVelocityRatio:.5,allowTouchMove:!1})}))}},e=>{e.O(0,[209],(()=>{return o=210,e(e.s=o);var o}));e.O()}]);
-//# sourceMappingURL=our_partners_block.js.map

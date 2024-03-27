@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkwp_starter_blocks=self.webpackChunkwp_starter_blocks||[]).push([[37],{162:(e,r,s)=>{var l=s(305),o=s(927);jQuery(document).ready((function(e){new l.A(".kd-hero-block-slider",{modules:[o.dK],slidesPerView:1,loop:!0,pagination:{el:".kd-hero-block__pagination",clickable:!0}})}))}},e=>{e.O(0,[209],(()=>{return r=162,e(e.s=r);var r}));e.O()}]);
-//# sourceMappingURL=hero_block.js.map

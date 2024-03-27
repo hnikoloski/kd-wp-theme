@@ -1,7 +1,7 @@
-@import '../../sass/helpers/variables.scss';
+@use '../../sass/helpers/variables' as vars;
 
 .kd-image-cta-block {
-    padding: 14rem 0 8.7rem $sidePadding;
+    padding: 14rem 0 8.7rem vars.$sidePadding;
     background-color: #EEEEEE;
 
     &__wrapper {
@@ -33,7 +33,7 @@
                     left: 0;
                     width: 80%;
                     height: 2px;
-                    background: $red;
+                    background: vars.$red;
                 }
             }
         }
@@ -64,7 +64,7 @@
                 right: calc(-100% - 3rem);
                 width: 18rem;
                 height: 2px;
-                background: $red;
+                background: vars.$red;
             }
         }
     }

@@ -1,0 +1,49 @@
+{
+  "src/app.js": {
+    "file": "assets/app.js",
+    "name": "app",
+    "src": "src/app.js",
+    "isEntry": true
+  },
+  "src/app.scss": {
+    "file": "assets/global_style.css",
+    "src": "src/app.scss",
+    "isEntry": true
+  },
+  "src/blocks-assets/scripts/filterable_products_block.js": {
+    "file": "assets/filterable_products_block.js",
+    "name": "filterable_products_block",
+    "src": "src/blocks-assets/scripts/filterable_products_block.js",
+    "isEntry": true,
+    "css": [
+      "assets/filterable_products_block.css"
+    ]
+  },
+  "src/blocks-assets/scripts/hero_block.js": {
+    "file": "assets/hero_block.js",
+    "name": "hero_block",
+    "src": "src/blocks-assets/scripts/hero_block.js",
+    "isEntry": true,
+    "css": [
+      "assets/hero_block.css"
+    ]
+  },
+  "src/blocks-assets/scripts/image_cta_block.js": {
+    "file": "assets/image_cta_block.js",
+    "name": "image_cta_block",
+    "src": "src/blocks-assets/scripts/image_cta_block.js",
+    "isEntry": true,
+    "css": [
+      "assets/image_cta_block.css"
+    ]
+  },
+  "src/blocks-assets/scripts/our_partners_block.js": {
+    "file": "assets/our_partners_block.js",
+    "name": "our_partners_block",
+    "src": "src/blocks-assets/scripts/our_partners_block.js",
+    "isEntry": true,
+    "css": [
+      "assets/our_partners_block.css"
+    ]
+  }
+}

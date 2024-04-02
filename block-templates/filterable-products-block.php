@@ -40,6 +40,10 @@ if (!empty($block['align'])) {
                     </li>
                 <?php } ?>
             </ul>
+            <?php
+            $products_archive_link =  get_post_type_archive_link('products');
+            ?>
+            <a href="<?php echo $products_archive_link; ?>" class="kd-filterable-products-block__filters__see-more">See More</a>
         </div>
     </div>
 </div>

@@ -1,4 +1,8 @@
 {
+  "_swiper-core.js": {
+    "file": "assets/swiper-core.js",
+    "name": "swiper-core"
+  },
   "src/app.js": {
     "file": "assets/app.js",
     "name": "app",
@@ -14,16 +18,16 @@
     "file": "assets/filterable_products_block.js",
     "name": "filterable_products_block",
     "src": "src/blocks-assets/scripts/filterable_products_block.js",
-    "isEntry": true,
-    "css": [
-      "assets/filterable_products_block.css"
-    ]
+    "isEntry": true
   },
   "src/blocks-assets/scripts/hero_block.js": {
     "file": "assets/hero_block.js",
     "name": "hero_block",
     "src": "src/blocks-assets/scripts/hero_block.js",
     "isEntry": true,
+    "imports": [
+      "_swiper-core.js"
+    ],
     "css": [
       "assets/hero_block.css"
     ]
@@ -42,6 +46,9 @@
     "name": "our_partners_block",
     "src": "src/blocks-assets/scripts/our_partners_block.js",
     "isEntry": true,
+    "imports": [
+      "_swiper-core.js"
+    ],
     "css": [
       "assets/our_partners_block.css"
     ]

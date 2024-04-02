@@ -1,4 +1,8 @@
 {
+  "_axios.js": {
+    "file": "assets/axios.js",
+    "name": "axios"
+  },
   "_swiper-core.js": {
     "file": "assets/swiper-core.js",
     "name": "swiper-core"
@@ -7,7 +11,10 @@
     "file": "assets/app.js",
     "name": "app",
     "src": "src/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_axios.js"
+    ]
   },
   "src/app.scss": {
     "file": "assets/global_style.css",
@@ -18,7 +25,13 @@
     "file": "assets/filterable_products_block.js",
     "name": "filterable_products_block",
     "src": "src/blocks-assets/scripts/filterable_products_block.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_axios.js"
+    ],
+    "css": [
+      "assets/filterable_products_block.css"
+    ]
   },
   "src/blocks-assets/scripts/hero_block.js": {
     "file": "assets/hero_block.js",

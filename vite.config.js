@@ -36,7 +36,6 @@ export default defineConfig({
             gifsicle: {},
             mozjpeg: {},
             optipng: {},
-            svgo: {},
         }),
 
     ],

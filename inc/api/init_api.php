@@ -5,6 +5,13 @@ define('API_NAMESPACE', $nameSpace);
 
 // Register Custom Endpoints
 add_action('rest_api_init', function () use ($nameSpace) {
+
+    // Filterable Products
+    register_rest_route($nameSpace, '/filterable-products', array(
+        'methods' => 'GET',
+        'callback' => 'get_filterable_products',
+        'permission_callback' => '__return_true',
+    ));
 });
 
 

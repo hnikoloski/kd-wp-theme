@@ -188,3 +188,6 @@ require get_template_directory() . '/inc/theme-editor-settings/theme-editor-sett
 
 // Api Endpoints
 require get_template_directory() . '/inc/api/init_api.php';
+
+// Custom Image Sizes
+require get_template_directory() . '/inc/custom-image-sizes.php';

@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
         let disckountMarkup = '';
         console.log(percentage_discount);
         if (percentage_discount > 0) {
-            disckountMarkup = `<span class="kd-filterable-products-block__results__item__discount-badge">${percentage_discount}%</span>`;
+            disckountMarkup = `<span class="kd-filterable-products-block__results__item__discount-badge">-${percentage_discount}%</span>`;
         }
         return `
         <a class="kd-filterable-products-block__results__item" href="${permalink}">

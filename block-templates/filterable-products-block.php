@@ -88,9 +88,9 @@ if (!empty($block['align'])) {
                     ?>
                     <a class="kd-filterable-products-block__results__item" href="<?php the_permalink(); ?>">
                         <div class="kd-filterable-products-block__results__item__image">
-                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover" />
+                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'product-card', NULL); ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover" />
                             <?php if ($percentage_discount > 0) : ?>
-                                <span class="kd-filterable-products-block__results__item__discount-badge"><?php echo $percentage_discount; ?>%</span>
+                                <span class="kd-filterable-products-block__results__item__discount-badge">-<?php echo $percentage_discount; ?>%</span>
                             <?php endif; ?>
                         </div>
                         <h3 class="kd-filterable-products-block__results__item__title"><?php the_title(); ?></h3>

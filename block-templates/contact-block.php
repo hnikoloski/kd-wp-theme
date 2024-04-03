@@ -53,9 +53,10 @@ endif;
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required placeholder="Your message here"></textarea>
                 </div>
-                <button type="submit" class="kd-contact-block__submit button button--primary">Send</button>
-
-                <div class="kd-contact-block__form__response"></div>
+                <div class="kd-contact-block__form__footer">
+                    <button type="submit" class="kd-contact-block__submit button button--primary">Send</button>
+                    <div class="kd-contact-block__form__response"></div>
+                </div>
             </form>
         </div>
         <div class="kd-contact-block__map">

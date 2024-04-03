@@ -13,7 +13,7 @@ function send_contact_form_email($request)
 
     // Check for validation errors
     if (!empty($validationErrors)) {
-        return ['status' => 'error', 'message' => 'Validation errors occurred.', 'errors' => $validationErrors];
+        return ['status' => 'error', 'message' => 'Some fields are missing or invalid', 'errors' => $validationErrors];
     }
 
     // Prepare and send the email
@@ -40,6 +40,8 @@ function validate_contact_form_input($name, $email, $phone, $message)
     }
     if (empty($phone)) {
         $errors['phone'] = 'Phone is required';
+    } else if (!preg_match('/^\+?\d+$/', $phone)) {
+        $errors['phone'] = 'Invalid phone number format';
     }
     if (empty($message)) {
         $errors['message'] = 'Message is required';

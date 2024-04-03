@@ -26,6 +26,9 @@
     "name": "contact_block",
     "src": "src/blocks-assets/scripts/contact_block.js",
     "isEntry": true,
+    "imports": [
+      "_axios.js"
+    ],
     "css": [
       "assets/contact_block.css"
     ]

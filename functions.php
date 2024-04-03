@@ -191,3 +191,17 @@ require get_template_directory() . '/inc/api/init_api.php';
 
 // Custom Image Sizes
 require get_template_directory() . '/inc/custom-image-sizes.php';
+
+
+// Add taxonomy=promotional-group link to the products menu
+function add_promotional_group_link()
+{
+    add_submenu_page(
+        'edit.php?post_type=product',
+        'Promotional Group',
+        'Promotional Group',
+        'manage_options',
+        'edit-tags.php?taxonomy=promotional-group&post_type=product'
+    );
+}
+add_action('admin_menu', 'add_promotional_group_link');

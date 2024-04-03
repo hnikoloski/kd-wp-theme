@@ -17,7 +17,7 @@ add_filter('block_categories_all', function ($categories) {
         'slug'  => 'kd',
         'title' => 'KD Blocks',
         // icon the logo
-        'icon'  => 'kd-logo',
+        'icon'  => 'tamtam-logo',
         'order' => 1,
     );
 
@@ -27,7 +27,7 @@ add_filter('block_categories_all', function ($categories) {
 // Block Editor styles
 function tamtam_editor_styles()
 {
-    wp_enqueue_style('tamtam-editor-styles', get_template_directory_uri() . '/dist/assets/admin/editor.css', false, TAMTAM_VERSION, 'all');
+    wp_enqueue_style('tamtam-editor-styles', get_template_directory_uri() . '/dist/assets/editor_style.css', false, TAMTAM_VERSION, 'all');
 }
 add_action('enqueue_block_editor_assets', 'tamtam_editor_styles');
 
@@ -43,7 +43,7 @@ function tamtam_acf_init_block_types()
                 'description'       => __('A block to display hero.'),
                 'render_template'   => 'block-templates/hero-block.php',
                 'category'          => 'kd',
-                'icon'              => 'kd-logo',
+                'icon'              => 'tamtam-logo',
                 'keywords'          => array('hero', 'kd'),
                 'supports'          => array(
                     'mode' => true,
@@ -62,7 +62,7 @@ function tamtam_acf_init_block_types()
                 'description'       => __('A block to display our partners.'),
                 'render_template'   => 'block-templates/our-partners-block.php',
                 'category'          => 'kd',
-                'icon'              => 'kd-logo',
+                'icon'              => 'tamtam-logo',
                 'keywords'          => array('our partners', 'kd'),
                 'supports'          => array(
                     'mode' => true,
@@ -80,7 +80,7 @@ function tamtam_acf_init_block_types()
                 'description'       => __('A block to display image CTA.'),
                 'render_template'   => 'block-templates/image-cta-block.php',
                 'category'          => 'kd',
-                'icon'              => 'kd-logo',
+                'icon'              => 'tamtam-logo',
                 'keywords'          => array('image cta', 'kd'),
                 'supports'          => array(
                     'mode' => true,
@@ -99,13 +99,49 @@ function tamtam_acf_init_block_types()
                 'description'       => __('A block to display filterable products.'),
                 'render_template'   => 'block-templates/filterable-products-block.php',
                 'category'          => 'kd',
-                'icon'              => 'kd-logo',
+                'icon'              => 'tamtam-logo',
                 'keywords'          => array('filterable products', 'kd'),
                 'supports'          => array(
                     'mode' => true,
                 ),
                 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/filterable_products_block.css',
                 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/filterable_products_block.js',
+            )
+        );
+
+        // Cta Section block
+        acf_register_block_type(
+            array(
+                'name'              => 'cta-section',
+                'title'             => __('CTA Section'),
+                'description'       => __('A block to display CTA Section.'),
+                'render_template'   => 'block-templates/cta-section-block.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('cta section', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/cta_section_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/cta_section_block.js',
+            )
+        );
+
+        // Contact Block
+        acf_register_block_type(
+            array(
+                'name'              => 'contact',
+                'title'             => __('Contact'),
+                'description'       => __('A block to display contact.'),
+                'render_template'   => 'block-templates/contact-block.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('contact', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/contact_block.css',
+                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/contact_block.js',
             )
         );
     }

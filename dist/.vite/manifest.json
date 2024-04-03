@@ -21,6 +21,24 @@
     "src": "src/app.scss",
     "isEntry": true
   },
+  "src/blocks-assets/scripts/contact_block.js": {
+    "file": "assets/contact_block.js",
+    "name": "contact_block",
+    "src": "src/blocks-assets/scripts/contact_block.js",
+    "isEntry": true,
+    "css": [
+      "assets/contact_block.css"
+    ]
+  },
+  "src/blocks-assets/scripts/cta_section_block.js": {
+    "file": "assets/cta_section_block.js",
+    "name": "cta_section_block",
+    "src": "src/blocks-assets/scripts/cta_section_block.js",
+    "isEntry": true,
+    "css": [
+      "assets/cta_section_block.css"
+    ]
+  },
   "src/blocks-assets/scripts/filterable_products_block.js": {
     "file": "assets/filterable_products_block.js",
     "name": "filterable_products_block",
@@ -65,5 +83,10 @@
     "css": [
       "assets/our_partners_block.css"
     ]
+  },
+  "src/editor.scss": {
+    "file": "assets/editor_style.css",
+    "src": "src/editor.scss",
+    "isEntry": true
   }
 }

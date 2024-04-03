@@ -4,6 +4,10 @@
     font-size: 2.6rem;
     line-height: 1.269230769;
     font-weight: 500;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
 
     &--primary {
         background: $red;

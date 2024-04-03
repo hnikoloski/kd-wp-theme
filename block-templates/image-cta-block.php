@@ -3,7 +3,7 @@
 /**
  * ImageCta Block Template.
  */
-// TODO: Add block styles 
+
 $anchor = '';
 if (!empty($block['anchor'])) {
     $anchor = 'id="' . esc_attr($block['anchor']) . '" ';

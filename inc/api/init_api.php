@@ -12,6 +12,13 @@ add_action('rest_api_init', function () use ($nameSpace) {
         'callback' => 'get_filterable_products',
         'permission_callback' => '__return_true',
     ));
+
+    // Contact form
+    register_rest_route($nameSpace, '/contact-form', array(
+        'methods' => 'POST',
+        'callback' => 'send_contact_form_email',
+        'permission_callback' => '__return_true',
+    ));
 });
 
 

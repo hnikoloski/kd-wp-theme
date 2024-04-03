@@ -8,6 +8,7 @@ import viteImagemin from 'vite-plugin-imagemin';
 const entryPoints = {
     app: path.resolve(__dirname, './src/app.js'), // Main JavaScript entry point
     global_style: path.resolve(__dirname, './src/app.scss'), // Main CSS entry point
+    editor_style: path.resolve(__dirname, './src/editor.scss'), // Main CSS entry point
 };
 
 // Directory containing block scripts

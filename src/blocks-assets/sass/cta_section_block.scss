@@ -1,0 +1,32 @@
+.kd-cta-section-block {
+    background-color: var(--bg-color);
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 8.5rem;
+        padding-bottom: 8.5rem;
+    }
+
+    &__image {
+        flex: 0 0 50.2rem;
+        max-width: 50.2rem;
+        width: 50.2rem;
+    }
+
+    &__content {
+        flex: 0 0 calc(100% - 50.2rem - 9.3rem);
+        max-width: calc(100% - 50.2rem - 9.3rem);
+        width: calc(100% - 50.2rem - 9.3rem);
+
+        &__title {
+            font-size: 3.5rem;
+            line-height: 1.314;
+            margin-bottom: 5rem;
+            font-weight: 500;
+        }
+    }
+}

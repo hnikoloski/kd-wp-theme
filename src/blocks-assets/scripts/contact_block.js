@@ -29,6 +29,7 @@ jQuery(document).ready(function ($) {
             center: [centerLocation.lng, centerLocation.lat], // starting position [lng, lat]
             zoom: 12 // starting zoom
         });
+        const bounds = new mapboxgl.LngLatBounds();
 
         // Add markers to the map for each location
         locations.forEach(location => {
@@ -37,18 +38,17 @@ jQuery(document).ready(function ($) {
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // Add popups
                     .setText(location.store_name))
                 .addTo(map)
+            bounds.extend([location.lng, location.lat])
+
         });
 
-        // Bounds for the map
-        const bounds = new mapboxgl.LngLatBounds();
-        locations.forEach(location => {
-            bounds.extend([location.lng, location.lat]);
-        });
 
-        // Fit the map to the bounds
-        map.fitBounds(bounds, {
-            padding: { top: 50, bottom: 50, left: 50, right: 50 }
-        });
+        setTimeout(() => {
+            // Fit the map to the bounds
+            map.fitBounds(bounds, {
+                padding: { top: 50, bottom: 50, left: 50, right: 50 }
+            });
+        }, 200);
 
     }
 

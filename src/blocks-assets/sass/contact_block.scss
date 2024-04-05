@@ -152,4 +152,12 @@
             height: 100%;
         }
     }
+
+    .mapboxgl-marker {
+        svg {
+            path {
+                fill: vars.$red;
+            }
+        }
+    }
 }

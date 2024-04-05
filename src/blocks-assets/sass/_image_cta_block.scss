@@ -82,4 +82,43 @@
         border-radius: 10px;
         min-height: 41.3rem;
     }
+
+    &__images-wrapper {
+        flex: 0 0 calc(100% - 9.2rem - 62.6rem);
+        width: calc(100% - 9.2rem - 62.6rem);
+        height: 53.4rem;
+        position: relative;
+    }
+
+    &__image-wrapper {
+        z-index: 102;
+        width: 71%;
+        height: 77%;
+        position: absolute;
+        right: 18rem;
+        bottom: 0;
+
+        img {
+            border-radius: 8px;
+        }
+
+        &--behind {
+            width: 77%;
+            height: 92%;
+            z-index: 1;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -0.8rem;
+                left: 0;
+                height: 1.5rem;
+                width: 95%;
+                background: vars.$red;
+            }
+        }
+    }
 }

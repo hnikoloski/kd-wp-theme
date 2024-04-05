@@ -44,10 +44,25 @@ if (!empty($block['align'])) {
             <?php endif; ?>
         </div>
         <?php
-        if (get_field('image')) :
+        if (get_field('use_two_images')) {
+            $image = get_field('image');
+            $image_behind = get_field('image_behind');
         ?>
-            <div class="kd-image-cta-block__image" style="--bg-image:url('<?= get_field('image')['url']; ?>');"></div>
-        <?php endif; ?>
+            <div class="kd-image-cta-block__images-wrapper">
+                <div class="kd-image-cta-block__image-wrapper">
+                    <img src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" class="full-size-img full-size-img-cover" />
+                </div>
+                <div class="kd-image-cta-block__image-wrapper kd-image-cta-block__image-wrapper--behind">
+                    <img src="<?= $image_behind['url']; ?>" alt="<?= $image_behind['alt']; ?>" class="img-behind full-size-img full-size-img-cover" />
+                </div>
+            </div>
+            <?php
+        } else {
+            if (get_field('image')) {
+            ?>
+                <div class="kd-image-cta-block__image" style="--bg-image:url('<?= get_field('image')['url']; ?>');"></div>
+        <?php }
+        } ?>
 
     </div>
 </div>

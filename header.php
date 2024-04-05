@@ -32,6 +32,10 @@
     $custom_logo_id = get_theme_mod('custom_logo');
     $logoUrl = wp_get_attachment_image_src($custom_logo_id, 'full');
     $logoWidth = get_field('logo_width', 'option') ? get_field('logo_width', 'option') : '191';
+    // Include template-parts/promos.php
+    if (get_field('enable_promo_banner', 'option') === true) {
+        require(get_template_directory() . '/template-parts/promotional-banner.php');
+    }
     ?>
     <div id="page" class="site">
         <header id="masthead" class="site-header page-padding-x">

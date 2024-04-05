@@ -37,6 +37,9 @@
         }
 
         &__contact {
+            flex: 0 0 20.5rem;
+            max-width: 20.5rem;
+
             ul {
                 li {
                     &:not(:last-of-type) {
@@ -62,7 +65,55 @@
                 }
             }
         }
+
+        .footer-menu {
+            li {
+                &:not(:last-of-type) {
+                    margin-bottom: 3.5rem;
+                }
+
+                a {
+                    // font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 2rem;
+                    line-height: 1.2;
+                    color: #FFFFFF;
+
+                    &:hover {
+                        color: vars.$red;
+                    }
+                }
+            }
+
+            &--useful-links {
+                display: flex;
+                flex-wrap: wrap;
+                align-content: flex-start;
+
+                li {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+
+                    &:nth-of-type(2n) {
+                        padding-left: 3rem;
+                    }
+                }
+            }
+        }
+
     }
+
+    &__useful-links {
+        flex: 0 0 35rem;
+        max-width: 35rem;
+    }
+
+    &__privacy {
+        flex: 0 0 20rem;
+        max-width: 20rem;
+    }
+
+
 
     &__copy-bar {
         border-top: 1px solid #fff;

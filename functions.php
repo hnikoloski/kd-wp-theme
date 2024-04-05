@@ -58,6 +58,8 @@ if (!function_exists('starter_setup')) :
         register_nav_menus(
             array(
                 'menu-1' => esc_html__('Primary', 'starter'),
+                'useful_links' => esc_html__('Useful Links', 'starter'),
+                'privacy_policy' => esc_html__('Privacy Policy', 'starter'),
             )
         );
 

@@ -10,6 +10,33 @@
                 </div>
             <?php endif; ?>
         </div>
+        <div class="site-footer__useful-links">
+            <h3 class="site-footer__label">USEFUL LINKS</h3>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'useful_links',
+                    'menu_class' => 'footer-menu footer-menu--useful-links',
+                    'container' => false,
+                    'fallback_cb' => false,
+                )
+            );
+            ?>
+        </div>
+
+        <div class="site-footer__privacy">
+            <h3 class="site-footer__label">PRIVACY POLICY</h3>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'privacy_policy',
+                    'menu_class' => 'footer-menu',
+                    'container' => false,
+                    'fallback_cb' => false,
+                )
+            );
+            ?>
+        </div>
         <div class="site-info__contact">
             <h3 class="site-footer__label">CONTACT INFO</h3>
             <?php if (have_rows('contact_items', 'option')) : ?>

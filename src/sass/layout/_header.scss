@@ -13,19 +13,118 @@
     background: rgba(255, 255, 255, 1);
     transition: box-shadow 250ms ease-in, top 250ms ease-in;
 
+    @media screen and (max-width: 768px) {
+        padding: 3.7rem 1.6rem;
+    }
+
     &.sticky {
         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
     }
 
     #menu-trigger {
         display: none;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &.active {
+                .hamburger-menu {
+                    span {
+                        &:nth-child(1) {
+                            top: 50%;
+                            transform: translateY(-50%) rotate(45deg);
+                            -webkit-transform: translateY(-50%) rotate(45deg);
+                            -moz-transform: translateY(-50%) rotate(45deg);
+                        }
+
+                        &:nth-child(2) {
+                            display: none;
+                        }
+
+                        &:nth-child(3) {
+                            top: 50%;
+                            transform: translateY(-50%) rotate(-45deg);
+                            -webkit-transform: translateY(-50%) rotate(-45deg);
+                            -moz-transform: translateY(-50%) rotate(-45deg);
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-size: 1.8rem;
+                color: #272727;
+                font-weight: 500;
+                line-height: 1.27;
+                margin-right: 0.6rem;
+            }
+
+            .hamburger-menu {
+                width: 1.9rem;
+                height: 1.1rem;
+                position: relative;
+
+                span {
+                    display: block;
+                    width: 100%;
+                    height: 0.2rem;
+                    background: #000;
+                    position: absolute;
+                    left: 0;
+                    transition: top 250ms ease-in, transform 250ms ease-in;
+                    -webkit-transition: top 250ms ease-in, transform 250ms ease-in;
+                    -moz-transition: top 250ms ease-in, transform 250ms ease-in;
+
+                    &:nth-child(1) {
+                        top: 0;
+                    }
+
+                    &:nth-child(2) {
+                        top: 50%;
+                        transform: translateY(-50%);
+                        -webkit-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                    }
+
+                    &:nth-child(3) {
+                        bottom: 0;
+                    }
+                }
+
+
+            }
+        }
     }
 
     .logo-wrapper {
         width: 19.1rem;
+
+        @media screen and (max-width: 768px) {
+            width: 10.4rem;
+        }
     }
 
     .main-navigation {
+        @media screen and (max-width: 768px) {
+            display: none;
+            transition: transform 250ms ease-in;
+            transform: translateX(100%);
+
+            &.active {
+                display: block;
+                position: fixed;
+                width: 50%;
+                height: 100%;
+                z-index: 9999;
+                top: 0;
+                right: 0;
+                background: #fff;
+                transform: translateX(0);
+            }
+        }
+
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -33,13 +132,27 @@
             align-content: center;
             justify-content: flex-end;
 
+            @media screen and (max-width: 768px) {
+                display: block;
+                padding: 0 2.4rem;
+            }
+
             li {
+                @media screen and (max-width: 768px) {
+                    padding: 1.9rem 0;
+                }
+
                 &:not(:last-of-type) {
                     margin-right: 4.6rem;
+
+                    @media screen and (max-width: 768px) {
+                        margin-right: 0;
+                        margin-bottom: 2.4rem;
+                        border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+                    }
                 }
 
                 &:not(.btn) {
-
                     a {
                         font-size: 2rem;
                         color: $black;
@@ -186,6 +299,22 @@
 }
 
 body {
+    &.menu-open {
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.51);
+            z-index: 1024;
+        }
+    }
+
     &.admin-bar {
         #masthead {
             top: 32px;

@@ -56,9 +56,12 @@
             </nav><!-- #site-navigation -->
 
             <div id="menu-trigger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <p>MENU</p>
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
             </ul>
         </header><!-- #masthead -->

@@ -1,7 +1,7 @@
-import "../sass/_our_partners_block.scss";
 import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
-
+import 'swiper/css';
+import 'swiper/css/pagination';
 // import Swiper and modules styles
 
 jQuery(document).ready(function ($) {

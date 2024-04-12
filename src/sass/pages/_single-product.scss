@@ -1,0 +1,70 @@
+@use '../../sass/helpers/variables' as vars;
+
+.single-product {
+    &__top-bar {
+        padding: 8rem vars.$sidePadding;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            li {
+                position: relative;
+                font-size: 1.4rem;
+
+                a {
+                    color: #111;
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                }
+
+                &:not(:last-of-type) {
+                    padding-right: 0.8rem;
+                    margin-right: 0.7rem;
+
+                    &::after {
+                        content: "/";
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-family: $spaceG;
+                        font-family: 1.4rem;
+
+                    }
+                }
+            }
+        }
+    }
+
+    &__back-button {
+        font-weight: 700;
+        font-size: 2.8rem;
+        line-height: 1.285714286;
+        color: #111111;
+        padding-right: 4.4rem;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.4rem;
+            height: 2.4rem;
+            background: url("../../assets/images/back-arrow-icon.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

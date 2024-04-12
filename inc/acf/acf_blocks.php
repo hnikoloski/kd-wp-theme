@@ -48,8 +48,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/hero_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/hero_block.js',
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/hero_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/hero_block.js',
 
             )
         );
@@ -67,8 +67,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/our_partners_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/our_partners_block.js',
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/our_partners_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/our_partners_block.js',
             )
         );
 
@@ -85,8 +85,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/image_cta_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/image_cta_block.js',
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/image_cta_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/image_cta_block.js',
 
             )
         );
@@ -104,8 +104,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/filterable_products_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/filterable_products_block.js',
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/filterable_products_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/filterable_products_block.js',
             )
         );
 
@@ -122,8 +122,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/cta_section_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/cta_section_block.js',
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/cta_section_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/cta_section_block.js',
             )
         );
 
@@ -140,8 +140,8 @@ function tamtam_acf_init_block_types()
                 'supports'          => array(
                     'mode' => true,
                 ),
-                'enqueue_style'     => get_template_directory_uri() . '/dist/assets/contact_block.css',
-                'enqueue_script'    => get_template_directory_uri() . '/dist/assets/contact_block.js',
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/contact_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/contact_block.js',
             )
         );
     }

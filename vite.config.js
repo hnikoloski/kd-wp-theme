@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-import fs from 'fs';
 import compressionPlugin from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
 
@@ -11,17 +10,6 @@ const entryPoints = {
     editor_style: path.resolve(__dirname, './src/editor.scss'), // Main CSS entry point
 };
 
-// Directory containing block scripts
-const blocksDir = path.resolve(__dirname, 'src', 'blocks-assets', 'scripts');
-
-// Dynamically add block assets to entry points
-fs.readdirSync(blocksDir).forEach(file => {
-    const filePath = path.join(blocksDir, file);
-    const fileInfo = path.parse(filePath);
-    if (fileInfo.ext === '.js') {
-        entryPoints[fileInfo.name] = filePath;
-    }
-});
 
 export default defineConfig({
     base: '/wp-content/themes/kristina-damil/dist/',
@@ -41,7 +29,7 @@ export default defineConfig({
 
     ],
     build: {
-        manifest: true,
+        manifest: false,
         outDir: 'dist',
         rollupOptions: {
             input: entryPoints,

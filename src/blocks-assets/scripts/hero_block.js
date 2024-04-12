@@ -4,8 +4,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 // import Swiper and modules styles
 
-import "../sass/_hero_block.scss";
-
 jQuery(document).ready(function ($) {
     // init Swiper:
     const swiper = new Swiper('.kd-hero-block-slider', {

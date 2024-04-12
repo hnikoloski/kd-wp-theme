@@ -207,3 +207,52 @@ function add_promotional_group_link()
     );
 }
 add_action('admin_menu', 'add_promotional_group_link');
+
+
+function custom_breadcrumbs()
+{
+    // Breadcrumbs container
+    echo '<ul class="breadcrumbs">';
+
+    // Home page
+    echo '<li><a href="' . get_home_url() . '">Home</a></li>';
+
+    // Custom post type (if applicable)
+    $post_type = get_post_type();
+    if ($post_type && !is_singular('page')) {
+        // Get the post type object
+        $post_type_object = get_post_type_object($post_type);
+        echo '<li><a href="' . get_post_type_archive_link($post_type) . '">' . $post_type_object->labels->singular_name . '</a></li>';
+    }
+
+    // Categories (for hierarchical taxonomies like product categories)
+    if (is_singular('product')) {
+        $terms = wp_get_post_terms(get_the_ID(), 'product_cat');
+        if (!empty($terms) && !is_wp_error($terms)) {
+            // Get the deepest term
+            $deepest_term = $terms[0];
+            foreach ($terms as $term) {
+                if ($term->parent > $deepest_term->parent) {
+                    $deepest_term = $term;
+                }
+            }
+            // Get hierarchical list of parent terms
+            $term_hierarchy = get_ancestors($deepest_term->term_id, 'product_cat');
+            $term_hierarchy = array_reverse($term_hierarchy);
+            $term_hierarchy[] = $deepest_term->term_id;
+
+            foreach ($term_hierarchy as $term_id) {
+                $term_object = get_term($term_id, 'product_cat');
+                echo '<li><a href="' . get_term_link($term_id, 'product_cat') . '">' . $term_object->name . '</a></li>';
+            }
+        }
+    }
+
+    // Current Post/Page
+    if (is_singular()) {
+        echo '<li>' . get_the_title() . '</li>';
+    }
+
+    // Close container
+    echo '</ul>';
+}

@@ -1,4 +1,3 @@
-import "../sass/filterable_products_block.scss";
 import axios from 'axios';
 
 jQuery(document).ready(function ($) {

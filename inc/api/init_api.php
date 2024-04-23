@@ -19,6 +19,13 @@ add_action('rest_api_init', function () use ($nameSpace) {
         'callback' => 'send_contact_form_email',
         'permission_callback' => '__return_true',
     ));
+
+    // Get Brands for a specific category
+    register_rest_route($nameSpace, '/category-brands', array(
+        'methods' => 'GET',
+        'callback' => 'get_brands_for_category',
+        'permission_callback' => '__return_true',
+    ));
 });
 
 

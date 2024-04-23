@@ -31,6 +31,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php starter_entry_footer(); ?>
+		<?php starter_tamtam_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

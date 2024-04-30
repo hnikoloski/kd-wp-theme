@@ -26,6 +26,20 @@ add_action('rest_api_init', function () use ($nameSpace) {
         'callback' => 'get_brands_for_category',
         'permission_callback' => '__return_true',
     ));
+
+    // Get Products for a specific category and brand
+    register_rest_route($nameSpace, '/category-brand-products', array(
+        'methods' => 'GET',
+        'callback' => 'get_products_for_category_and_brand',
+        'permission_callback' => '__return_true',
+    ));
+
+    // Get price quote for a product
+    register_rest_route($nameSpace, '/product-price-quote', array(
+        'methods' => 'POST',
+        'callback' => 'get_product_price_quote',
+        'permission_callback' => '__return_true',
+    ));
 });
 
 

@@ -7,3 +7,4 @@ import "./scripts/promo-banner";
 import "./scripts/sliders.js";
 import "./blocks-assets/scripts/_block-assets.js";
 import "./scripts/shop-page.js";
+import "./scripts/single-product.js";

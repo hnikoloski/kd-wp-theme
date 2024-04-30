@@ -100,6 +100,7 @@ get_header(); ?>
 
             </div>
         </div>
+        <div class="products-page__content__products__pagination d-none"></div>
     </div>
 </div>
 <?php get_footer(); ?>

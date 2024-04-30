@@ -39,7 +39,7 @@ body {
   line-height: 1.5;
   color: #111111;
   text-align: left;
-  background-color: #CBCBCB;
+  background-color: #EEEEEE;
   margin: 0;
   position: relative;
   transition: 0.3s;
@@ -52,6 +52,22 @@ body {
     padding-top: 105px;
   }
 
+  &.error404 {
+    section.not-found {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      padding: 17rem $sidePadding;
+
+      h1 {
+        margin-bottom: 4rem;
+        font-size: 4.8rem;
+      }
+    }
+  }
 
 }
 

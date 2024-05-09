@@ -17,11 +17,15 @@ jQuery(document).ready(function ($) {
 
     // Initialize the main slider
     const swiperProduct = new Swiper('.single-product__content .product-slider', {
-        modules: [Pagination],
+        modules: [Pagination, Navigation],
         slidesPerView: 1,
         loop: true,
         thumbs: {
             swiper: swiperProductThumbs, // Sync with the thumbnail slider
+        },
+        navigation: {
+            nextEl: '.single-product__content .swiper-button-next',
+            prevEl: '.single-product__content .swiper-button-prev',
         },
     });
 

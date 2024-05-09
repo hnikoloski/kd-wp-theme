@@ -1,0 +1,61 @@
+@use '../../sass/helpers/variables' as vars;
+
+
+.kd-promotions-block {
+    &__promotion {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: space-around;
+
+        &.odd {
+            flex-direction: row-reverse;
+        }
+
+        &.even {
+            .kd-promotions-block__promotion__content__validity {
+                right: auto;
+                left: 2rem;
+            }
+        }
+
+        &__image,
+        &__content {
+            flex: 0 0 50%;
+            max-width: 50%;
+            width: 50%;
+        }
+
+        &__content {
+            position: relative;
+            padding: 6rem 14rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            &__title {
+                font-size: 5rem;
+                line-height: 1.28;
+                margin-bottom: 8rem;
+                text-align: center;
+            }
+
+            &__validity {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                font-size: 1.6rem;
+                color: #fff;
+
+                &::before {
+                    content: "*";
+                    color: vars.$red;
+                }
+            }
+        }
+    }
+}

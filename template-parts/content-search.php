@@ -24,7 +24,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php starter_post_thumbnail(); ?>
+	<?php tamtam_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

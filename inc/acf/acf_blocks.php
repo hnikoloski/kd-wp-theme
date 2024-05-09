@@ -54,6 +54,24 @@ function tamtam_acf_init_block_types()
             )
         );
 
+        // Hero Inner block
+        acf_register_block_type(
+            array(
+                'name'              => 'hero-inner',
+                'title'             => __('Hero Inner'),
+                'description'       => __('A block to display hero inner.'),
+                'render_template'   => 'block-templates/hero-inner-block.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('hero inner', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/hero_inner_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/hero_inner_block.js',
+            )
+        );
+
         // Our Partners block
         acf_register_block_type(
             array(
@@ -142,6 +160,42 @@ function tamtam_acf_init_block_types()
                 ),
                 // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/contact_block.css',
                 // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/contact_block.js',
+            )
+        );
+
+        // Catalogues Grid block
+        acf_register_block_type(
+            array(
+                'name'              => 'catalogue-grid',
+                'title'             => __('Catalogue Grid'),
+                'description'       => __('A block to display catalogue grid.'),
+                'render_template'   => 'block-templates/catalogue-grid.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('catalogue grid', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/catalogue_grid.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/catalogue_grid.js',
+            )
+        );
+
+        // Promotions block
+        acf_register_block_type(
+            array(
+                'name'              => 'promotions',
+                'title'             => __('Promotions'),
+                'description'       => __('A block to display promotions.'),
+                'render_template'   => 'block-templates/promotions-block.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('promotions', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/promotions_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/promotions_block.js',
             )
         );
     }

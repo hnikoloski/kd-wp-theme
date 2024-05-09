@@ -94,6 +94,33 @@
                     }
                 }
 
+                .swiper-button-next,
+                .swiper-button-prev {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1.1rem;
+                    height: 2.1rem;
+                    z-index: 2;
+                    cursor: pointer;
+                }
+
+                .swiper-button-next {
+                    right: 2.5rem;
+                    background: url("../../assets/images/chevron-right.svg");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                .swiper-button-prev {
+                    background: url("../../assets/images/chevron-left.svg");
+                    left: 2.5rem;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
                 &-thumbs {
                     border-radius: 0px 45px 0px 0px;
 

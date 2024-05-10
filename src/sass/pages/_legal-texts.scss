@@ -1,0 +1,87 @@
+@use "../helpers/variables" as vars;
+
+.legal-texts-page {
+    padding: 0 vars.$sidePadding 18rem vars.$sidePadding;
+
+    p {
+        font-size: 2.6rem;
+
+        &:not(:last-of-type) {
+            margin-bottom: 1.5em;
+        }
+    }
+
+    h1 {
+        font-size: 6.4rem;
+    }
+
+    h2 {
+        font-size: 4.8rem;
+    }
+
+    h3 {
+        font-size: 4rem;
+    }
+
+    h4 {
+        font-size: 3.2rem;
+    }
+
+    h5 {
+        font-size: 2.6rem;
+    }
+
+    h6 {
+        font-size: 2.2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0.4em;
+    }
+
+    &__hero {
+        padding-top: 14rem;
+        margin-bottom: 6rem;
+
+        &__title {
+            font-size: 6.4rem;
+            font-weight: 500;
+            color: #111;
+            padding-bottom: 1rem;
+            width: fit-content;
+            width: -moz-fit-content;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 90%;
+                height: 0.6rem;
+                background: vars.$red;
+            }
+        }
+    }
+
+    ul,
+    ol {
+        li {
+            font-size: 2.6rem;
+
+            &:not(:last-of-type) {
+                margin-bottom: 5rem;
+            }
+        }
+    }
+
+    ol {
+        list-style-type: decimal;
+        padding-left: 4rem;
+    }
+}

@@ -30,6 +30,7 @@ if (!empty($block['align'])) {
             $highlighted_words_color = get_sub_field('highlighted_words_color') ?: '#ED3237';
             $promotion_link = get_sub_field('promotion_link');
             $promotion_validity = get_sub_field('promotion_validity');
+            $promotion_validity_color = get_sub_field('promotion_validity_color') ?: '#fff';
 
             $styled_title = $promotion_title;
             if ($highlighted_words) {
@@ -49,7 +50,8 @@ if (!empty($block['align'])) {
                         <?php echo $styled_title; ?>
                     </h3>
                     <?php if ($promotion_validity) : ?>
-                        <p class="kd-promotions-block__promotion__content__validity">Valid until <?php echo esc_html($promotion_validity); ?></p>
+                        <p class="kd-promotions-block__promotion__content__validity" style="color: <?php echo esc_attr($promotion_validity_color); ?>">
+                            Valid until <?php echo esc_html($promotion_validity); ?></p>
                     <?php endif; ?>
                     <?php if ($promotion_link) : ?>
                         <a href="<?php echo esc_url($promotion_link); ?>" class="kd-promotions-block__promotion__content__link button button--primary">View</a>

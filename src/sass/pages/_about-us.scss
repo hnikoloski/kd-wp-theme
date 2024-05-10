@@ -1,0 +1,131 @@
+@use "../helpers/variables" as vars;
+
+
+.about-us-page {
+    overflow: hidden;
+
+    &__hero {
+        margin-bottom: 10rem;
+        padding: 14rem vars.$sidePadding 0 vars.$sidePadding;
+
+        &__title {
+            font-size: 6.4rem;
+            font-weight: 500;
+            color: #111;
+            padding-bottom: 1rem;
+            width: fit-content;
+            width: -moz-fit-content;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 90%;
+                height: 0.6rem;
+                background: vars.$red;
+            }
+        }
+    }
+
+    &__content {
+        &__section {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            align-items: stretch;
+            justify-content: space-between;
+            margin-bottom: 17rem;
+            padding-left: vars.$sidePadding;
+            padding-right: vars.$sidePadding;
+            overflow-x: hidden;
+            overflow-y: visible;
+
+            &:nth-of-type(odd) {
+                flex-direction: row-reverse;
+            }
+
+            &:nth-of-type(even) {
+
+                .about-us-page__content__section__smaller-image {
+                    right: auto;
+                    left: -15%;
+                }
+
+                .about-us-page__content__section__text__description {
+                    padding-right: 0;
+                    padding-left: 4.5rem;
+                }
+
+                .about-us-page__content__section__text__title {
+                    // padding-right: 4.5rem;
+                    padding-left: 4.5rem;
+                }
+            }
+
+            &__image,
+            &__text {
+                flex: 0 0 50%;
+                max-width: 50%;
+                width: 50%;
+                height: inherit;
+
+                img {
+                    border-radius: 10px;
+                }
+            }
+
+            &__text {
+                position: relative;
+
+                &__title {
+                    font-size: 4.4rem;
+                    font-weight: 500;
+                    font-family: vars.$spaceG;
+                    margin-bottom: 4rem;
+                    background: #EEEEEE;
+                    padding-right: 3.9rem;
+                    position: relative;
+                    width: fit-content;
+                    width: -moz-fit-content;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: -250%;
+                        height: .6rem;
+                        width: 250%;
+                        background: vars.$red;
+                        z-index: -1;
+                    }
+                }
+
+                &__description {
+                    padding-bottom: 3.6rem;
+                    position: relative;
+                    padding-right: 4.5rem;
+
+                    p {
+                        font-size: 2rem;
+                        color: #111;
+
+                        &:not(:last-of-type) {
+                            margin-bottom: 1.5em;
+                        }
+                    }
+                }
+            }
+
+            &__smaller-image {
+                position: absolute;
+                bottom: -5rem;
+                right: -15%;
+                max-width: 35rem;
+                z-index: 1;
+            }
+        }
+    }
+}

@@ -41,9 +41,11 @@ function get_products_for_category_and_brand($request)
 
         if (!empty($meta_query)) {
             $args['meta_query'] = array(
-                'relation' => 'OR',
-                $meta_query
+                'relation' => 'OR', // Ensuring 'OR' logic applies between brand sub-queries
             );
+
+            // Directly adding each condition to the meta_query array
+            $args['meta_query'] = array_merge($args['meta_query'], $meta_query);
         }
     }
 

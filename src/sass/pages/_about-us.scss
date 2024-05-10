@@ -39,8 +39,6 @@
             margin-bottom: 17rem;
             padding-left: vars.$sidePadding;
             padding-right: vars.$sidePadding;
-            overflow-x: hidden;
-            overflow-y: visible;
 
             &:nth-of-type(odd) {
                 flex-direction: row-reverse;

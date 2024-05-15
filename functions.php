@@ -194,6 +194,9 @@ require get_template_directory() . '/inc/api/init_api.php';
 // Custom Image Sizes
 require get_template_directory() . '/inc/custom-image-sizes.php';
 
+// Shortcodes
+require get_template_directory() . '/inc/shortcode.php';
+
 
 // Add taxonomy=promotional-group link to the products menu
 function add_promotional_group_link()

@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
     // init Swiper:
     const swiper = new Swiper('.kd-partnes-block-slider', {
         modules: [Autoplay],
-        slidesPerView: 5.5,
+        slidesPerView: 2,
         loop: true,
         // Autoplay settings
         autoplay: {
@@ -23,5 +23,11 @@ jQuery(document).ready(function ($) {
         freeModeMomentumVelocityRatio: 0.5,
         // Disable interactivity
         allowTouchMove: false,
+        breakpoints: {
+            768: {
+                slidesPerView: 5.5,
+                spaceBetween: 20 // Adjust space between slides if necessary
+            }
+        }
     });
 });

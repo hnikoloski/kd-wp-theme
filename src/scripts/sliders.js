@@ -34,11 +34,17 @@ jQuery(document).ready(function ($) {
         modules: [Autoplay],
         loop: true,
         delay: 5000,
-        spaceBetween: 59,
-        slidesPerView: 3.5,
+        spaceBetween: 20,
+        slidesPerView: 1.5,
         centeredSlides: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 3.5,
+                spaceBetween: 59,
+            }
+        }
     });
 
     $('.brands-archive__content__single__gallery__swiper').each(function (index, element) {

@@ -44,6 +44,10 @@
             </a>
 
             <nav id="site-navigation" class="main-navigation">
+                <div class="mob-menu-close">
+                    <p>Menu</p>
+                    <i></i>
+                </div>
                 <?php
                 wp_nav_menu(
                     array(
@@ -53,6 +57,18 @@
                     )
                 );
                 ?>
+
+                <?php
+                // Language switcher
+                echo do_shortcode('[language-switcher]');
+                ?>
+                <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
+                    <label>
+                        <span class="screen-reader-text">Search for:</span>
+                        <input type="search" class="search-field" placeholder="Search …" value="<?php echo get_search_query(); ?>" name="s" title="Search for:" />
+                    </label>
+                    <button type="submit" class="search-submit"><i></i><span class="screen-reader-text">Search</span></button>
+                </form>
             </nav><!-- #site-navigation -->
 
             <div id="menu-trigger">
@@ -65,3 +81,7 @@
             </div>
             </ul>
         </header><!-- #masthead -->
+
+        <a id="back-to-top" href="#page" class="back-to-top" aria-label="Back to top">
+            <i></i>
+        </a>

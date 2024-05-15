@@ -16,6 +16,11 @@
         margin-bottom: 1.2rem;
         position: relative;
         transition: box-shadow 0.3s ease-in-out;
+
+        @media (max-width: 768px) {
+            height: 17.7rem;
+            margin-bottom: 0.6rem;
+        }
     }
 
     &__discount-badge {
@@ -34,6 +39,10 @@
         line-height: 1.26;
         font-weight: 400;
         color: #000;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+        }
     }
 
     &__description {
@@ -50,6 +59,11 @@
         line-height: 1.26;
         display: inline-block;
         margin-top: 2rem;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+            margin-top: 1rem;
+        }
     }
 
 

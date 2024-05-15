@@ -14,11 +14,35 @@
             justify-content: space-between;
             margin-bottom: 5.7rem;
 
+            @media (max-width: 768px) {
+                position: relative;
+                display: block;
+                height: 20.2rem;
+            }
+
             &__title {
                 font-weight: 700;
                 font-size: 6.4rem;
                 line-height: 1.28;
                 position: relative;
+
+                @media (max-width: 768px) {
+                    width: fit-content;
+                    width: -moz-fit-content;
+                    font-size: 2.6rem;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: calc(vars.$sidePadding * -1);
+                        top: 0;
+                        background-color: #f3f3f3;
+                        opacity: .71;
+                        width: 100vw;
+                        height: calc(100% + 3rem);
+                        z-index: -1;
+                    }
+                }
 
                 &::after {
                     content: "";
@@ -29,6 +53,10 @@
                     height: 0.6rem;
                     background: vars.$red;
                     border-radius: 8px;
+
+                    &::before {
+                        height: 0.3rem;
+                    }
                 }
             }
 
@@ -37,6 +65,15 @@
                 width: 50%;
                 border-radius: 0px 0px 0px 45px;
                 overflow: hidden;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    z-index: -3;
+                }
             }
         }
 
@@ -58,6 +95,11 @@
                         align-items: flex-start;
                         gap: 5rem;
                         padding-bottom: 5rem;
+
+                        @media (max-width: 768px) {
+                            flex-wrap: nowrap;
+                            overflow-x: auto;
+                        }
                     }
 
                     &__item {
@@ -129,6 +171,11 @@
                         display: flex;
                         align-content: flex-start;
                         justify-content: flex-start;
+
+                        @media (max-width: 768px) {
+                            flex-wrap: nowrap;
+                            overflow-x: auto;
+                        }
 
                         &__item {
                             font-weight: 400;
@@ -203,7 +250,6 @@
                 &__pagination {
                     margin-top: 4.8rem;
 
-
                     &__wrapper {
                         display: flex;
                         align-content: center;
@@ -220,6 +266,11 @@
                         font-weight: 600;
                         border-radius: 4px;
                         display: block;
+
+                        @media (max-width: 768px) {
+                            font-size: 2.4rem;
+                            padding: 0.5rem 1rem;
+                        }
 
                         &:not(:last-of-type) {
                             margin-right: 0.2rem;

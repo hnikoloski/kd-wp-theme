@@ -43,6 +43,15 @@ if (!empty($block['align'])) {
                 <a href="<?= get_field('button')['url']; ?>" class="kd-image-cta-block__content__button button button--just-text color-red"><?= get_field('button')['title']; ?></a>
             <?php endif; ?>
         </div>
+        <?php if (get_field('title')) : ?>
+            <?php
+            $title_tag = get_field('title_tag') ? get_field('title_tag') : 'h2';
+            $title_underline = get_field('title_underline') ? 'kd-image-cta-block__content__title--underline' : '';
+            ?>
+            <?php
+            printf('<%s class="kd-image-cta-block__content__title kd-image-cta-block__content__title--mobile %s">%s</%s>', $title_tag, $title_underline, get_field('title'), $title_tag);
+            ?>
+        <?php endif; ?>
         <?php
         if (get_field('use_two_images')) {
             $image = get_field('image');

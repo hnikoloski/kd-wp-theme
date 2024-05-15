@@ -36,7 +36,7 @@ endif;
     <div class="kd-contact-block__container">
         <div class="kd-contact-block__content">
             <h2 class="kd-contact-block__title"><?php the_field('title'); ?></h2>
-            <form class="kd-contact-block__form">
+            <form class="kd-contact-block__form" novalidate>
                 <div class="kd-contact-block__form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">

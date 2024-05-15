@@ -9,7 +9,7 @@
         background: var(--bg-image);
         background-size: cover;
         background-position: center;
-        padding: 15.2rem vars.$sidePadding;
+        padding: 15.2rem vars.$sidePadding 23rem vars.$sidePadding;
 
         &__content {
             max-width: 70rem;
@@ -19,6 +19,11 @@
                 margin-bottom: 8rem;
                 color: #000;
                 line-height: 1.03;
+
+                @media (max-width: 768px) {
+                    font-size: 3.8rem;
+                    margin-bottom: 2.7rem;
+                }
             }
         }
     }

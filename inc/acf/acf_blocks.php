@@ -198,6 +198,41 @@ function tamtam_acf_init_block_types()
                 // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/promotions_block.js',
             )
         );
+
+        // Salons Block
+        acf_register_block_type(
+            array(
+                'name'              => 'salons',
+                'title'             => __('Salons'),
+                'description'       => __('A block to display salons.'),
+                'render_template'   => 'block-templates/salons-block.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('salons', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/salons_block.css',
+                // 'enqueue_script'    => get_template_directory_uri() . '/dist/assets/salons_block.js',
+            )
+        );
+        // Salons gallery block
+        acf_register_block_type(
+            array(
+                'name'              => 'salons-gallery',
+                'title'             => __('Salons Gallery'),
+                'description'       => __('A block to display salons gallery.'),
+                'render_template'   => 'block-templates/salons-gallery.php',
+                'category'          => 'kd',
+                'icon'              => 'tamtam-logo',
+                'keywords'          => array('salons gallery', 'kd'),
+                'supports'          => array(
+                    'mode' => true,
+                ),
+                // 'enqueue_style'     => get_template_directory_uri() . '/dist/assets/salons_gallery.css',
+                'enqueue_script'    => 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js',
+            )
+        );
     }
 }
 add_action('acf/init', 'tamtam_acf_init_block_types');

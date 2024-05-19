@@ -110,6 +110,9 @@ get_header();
 			}
 
 			?>
+			<?php if (get_post_meta(get_the_ID(), '_sku', true)) : ?>
+				<p class="single-product__content__info__sku">SKU: <?php echo get_post_meta(get_the_ID(), '_sku', true); ?></p>
+			<?php endif; ?>
 			<p class="single-product__content__info__category">
 				<?php
 				$categories = get_the_terms(get_the_ID(), 'product_cat');
@@ -122,8 +125,30 @@ get_header();
 				}
 				?>
 			</p>
+			<?php if (get_field('product_brochure')) : ?>
+				<a class="single-product__content__info__download-brochure" href="<?php echo get_field('product_brochure')['url']; ?>" target="_blank">Technical Information →</a>
+			<?php endif; ?>
 			<div class="single-product__content__info__footer">
 				<button class="single-product__content__info__get-price button button--primary button--medium">Get a price</button>
+
+				<ul class="single-product__content__info__footer__share-btns">
+					<li>
+						<a href="mailto:?subject=<?php the_title(); ?>&body=<?php the_permalink(); ?>" class="single-product__content__info__footer__share-btns__item">
+							<i class="icon icon--email"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="single-product__content__info__footer__share-btns__item">
+							<i class="icon icon--facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#copyLink" class="single-product__content__info__footer__share-btns__item copy-link">
+							<i class="icon icon--copy"></i>
+						</a>
+					</li>
+
+				</ul>
 			</div>
 		</div>
 
@@ -134,32 +159,14 @@ get_header();
 		<div class="single-product__similar-products__products swiper">
 			<div class="swiper-wrapper">
 				<?php
+				$related_products = get_field('related_products');
 
-				$current_product_id = get_the_ID();
-				$current_product_categories = wp_get_post_terms($current_product_id, 'product_cat', array("fields" => "ids"));
+				if ($related_products) {
+					foreach ($related_products as $post) {
+						// Setup post data for each related product
+						setup_postdata($post);
 
-				// Arguments for related products
-				$args = array(
-					'post_type' => 'product',
-					'posts_per_page' => 8,  // Adjust number of similar products shown
-					'post__not_in' => array($current_product_id),  // Exclude current product
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'product_cat',
-							'field' => 'id',
-							'terms' => $current_product_categories
-						)
-					)
-				);
-
-				$similar_products = new WP_Query($args);
-
-				if ($similar_products->have_posts()) {
-					while ($similar_products->have_posts()) {
-						$similar_products->the_post();
-				?>
-						<?php
-						// The woocomerce price and the discounted price and the percentage discount
+						// The WooCommerce price, the discounted price, and the percentage discount
 						$regular_price = get_post_meta(get_the_ID(), '_regular_price', true);
 						$sale_price = get_post_meta(get_the_ID(), '_sale_price', true);
 						$price = $sale_price ? $sale_price : $regular_price;
@@ -171,11 +178,11 @@ get_header();
 							$percentage_discount = round($percentage_discount);
 						}
 						$price_currency = get_woocommerce_currency_symbol();
-						?>
+				?>
 						<div class="swiper-slide">
 							<a class="kd-filterable-products-block__results__item" href="<?php the_permalink(); ?>">
 								<div class="kd-filterable-products-block__results__item__image">
-									<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'product-card', NULL); ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover" />
+									<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'product-card'); ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover" />
 									<?php if ($percentage_discount > 0) : ?>
 										<span class="kd-filterable-products-block__results__item__discount-badge">-<?php echo $percentage_discount; ?>%</span>
 									<?php endif; ?>
@@ -192,13 +199,14 @@ get_header();
 						</div>
 				<?php
 					}
+					// Reset the global post object so that the rest of the page works correctly
+					wp_reset_postdata();
 				} else {
 					echo '<p>No similar products found.</p>';
 				}
-
-				wp_reset_postdata();
 				?>
 			</div>
+
 		</div>
 	</div>
 

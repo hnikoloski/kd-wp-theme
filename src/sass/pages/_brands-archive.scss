@@ -6,6 +6,10 @@
         padding: 14rem $sidePadding 0 $sidePadding;
         margin-bottom: 3.5rem;
 
+        @media (max-width: 768px) {
+            padding: 5rem vars.$sidePadding 0 vars.$sidePadding;
+        }
+
         &__title {
             font-weight: 700;
             font-size: 6.4rem;
@@ -14,6 +18,12 @@
             display: block;
             width: fit-content;
             width: -moz-fit-content;
+
+            @media (max-width: 768px) {
+                font-size: 2.6rem;
+                padding-right: 0;
+                max-width: 100%;
+            }
 
             &::after {
                 content: "";
@@ -42,6 +52,12 @@
                 flex: 0 0 40%;
                 max-width: 40%;
                 width: 40%;
+
+                @media (max-width: 768px) {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    width: 100%;
+                }
             }
 
             &__gallery {
@@ -49,9 +65,20 @@
                 max-width: 55%;
                 width: 55%;
 
+                @media (max-width: 768px) {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    width: 100%;
+                    margin-top: 2rem;
+                }
+
                 &__swiper {
                     .swiper-slide {
                         height: 38.3rem;
+
+                        @media (max-width: 768px) {
+                            height: 27.5rem;
+                        }
 
                         img {
                             border-radius: 110px 8px 8px 110px;
@@ -61,6 +88,11 @@
                             object-fit: cover;
                             object-position: center;
                             display: block;
+
+                            @media (max-width: 768px) {
+                                border-radius: 8px;
+
+                            }
                         }
                     }
 

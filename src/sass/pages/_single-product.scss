@@ -217,10 +217,95 @@
                 margin-bottom: 2rem;
             }
 
+            &__sku {
+                font-size: 2rem;
+                font-weight: 300;
+                margin-bottom: 1.6rem;
+            }
+
             &__category {
                 font-size: 2rem;
                 font-weight: 200;
                 margin-bottom: 1.6rem;
+            }
+
+            &__download-brochure {
+                font-family: 'Space Grotesk';
+                font-weight: 500;
+                font-size: 2.9rem;
+                line-height: 1.275862069;
+                color: vars.$red;
+                position: relative;
+                padding-bottom: 0.4rem;
+                margin-bottom: 2.5rem;
+                display: inline-block;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 0.2rem;
+                    background: vars.$red;
+                }
+            }
+
+            &__footer {
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding-bottom: 2.6rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+                &__share-btns {
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+
+
+                    li {
+                        width: 3rem;
+                        height: 3rem;
+
+                        &:not(:last-of-type) {
+                            margin-right: 1.6rem;
+                        }
+
+                        a {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        i {
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+
+                            &.icon {
+                                &--email {
+                                    background: url("../../assets/images/icon-email.svg");
+                                    @include bg-props(contain, no-repeat, center);
+                                }
+
+                                &--facebook {
+                                    background: url("../../assets/images/icon-facebook.svg");
+                                    @include bg-props(contain, no-repeat, center);
+                                }
+
+                                &--copy {
+                                    background: url("../../assets/images/icon-copy.svg");
+                                    @include bg-props(contain, no-repeat, center);
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             &__brands {

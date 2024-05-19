@@ -7,6 +7,7 @@ function get_products_for_category_and_brand($request)
     $page = $request->get_param('page') ? $request->get_param('page') : 1;
     $brand_ids = $request->get_param('brands');
     $brands = $brand_ids ? explode(',', $brand_ids) : array();
+    $sort = $request->get_param('sort');
 
     // Arguments for WP_Query
     $args = array(
@@ -14,6 +15,24 @@ function get_products_for_category_and_brand($request)
         'posts_per_page' => $per_page,
         'paged' => $page,
     );
+
+    // Handle sorting options
+    switch ($sort) {
+        case 'date':
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+            break;
+        case 'price-asc':
+            $args['meta_key'] = '_price';
+            $args['orderby'] = 'meta_value_num';
+            $args['order'] = 'ASC';
+            break;
+        case 'price-desc':
+            $args['meta_key'] = '_price';
+            $args['orderby'] = 'meta_value_num';
+            $args['order'] = 'DESC';
+            break;
+    }
 
     $tax_query = array();
     $meta_query = array();

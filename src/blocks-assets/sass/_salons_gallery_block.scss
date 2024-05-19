@@ -1,0 +1,184 @@
+@use '../../sass/helpers/variables' as vars;
+
+.kd-salons-gallery-block {
+    &.loading {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12rem;
+            height: 12rem;
+            background: url("../../assets/images/api-loader.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 104;
+            -webkit-animation: rotate-scale-down 1s linear infinite both;
+            animation: rotate-scale-down 1s linear infinite both;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 2;
+        }
+    }
+
+    &__wrapper {
+        padding: 0 vars.$sidePadding;
+    }
+
+    &__toggle-wrap {
+        display: none;
+    }
+
+    &__toggler {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 0;
+
+        span {
+            color: #111;
+            font-size: 3.2rem;
+        }
+
+        i {
+            width: 3.3rem;
+            height: 3.3rem;
+            padding: 0.6rem;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            position: relative;
+            margin-left: 0.8rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1.9rem;
+                height: 0.2rem;
+                background: vars.$red;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 0.2rem;
+                height: 1.9rem;
+                background: vars.$red;
+                transition: height 0.3s ease-in-out;
+            }
+        }
+
+        &.active {
+            i {
+                &::after {
+                    height: 0;
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-size: 2.2rem;
+        color: #111;
+        margin-bottom: 1rem;
+    }
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 2.8rem;
+    }
+
+    &__filter {
+        padding-left: 2.2rem;
+        position: relative;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 200;
+
+        &:not(:last-of-type) {
+            margin-right: 2.2rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 1.4rem;
+            height: 1.4rem;
+            background: #fff;
+            border: 0.3rem solid vars.$red;
+            border-radius: 50%;
+        }
+
+        &.active {
+            &::before {
+                background: vars.$red;
+            }
+        }
+
+        &:hover {
+
+            &::before {
+                background: vars.$red;
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__gallery-results {
+        padding-top: 2.2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.14);
+        column-count: 4;
+        column-gap: 16px;
+
+        @media (max-width: 991px) {
+            column-count: 2;
+        }
+
+        @media (max-width: 767px) {
+            column-count: 1;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            margin-bottom: 16px;
+            width: 100%;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                width: 100%;
+            }
+        }
+    }
+}

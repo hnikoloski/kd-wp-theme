@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 jQuery(document).ready(function ($) {
     const homeUrl = window.location.origin;
     const apiBase = `${homeUrl}/wp-json/tamtam/v1`;
@@ -8,6 +7,7 @@ jQuery(document).ready(function ($) {
     const $productsParams = $('#products-params');
     const $resultsContainer = $('.products-page__content__products__results');
     const $pagination = $('.products-page__content__products__pagination');
+    const $sortSelect = $('.products-page__content__products__header__actions__sort select');
 
     $categoryItems.on('click', function (e) {
         e.preventDefault();
@@ -47,6 +47,11 @@ jQuery(document).ready(function ($) {
         updateBrandSelection();
     });
 
+    $sortSelect.on('change', function () {
+        $productsParams.find('input[name="sort"]').val($(this).val());
+        fetchProducts(); // Fetch products after sorting
+    });
+
     function updateBrandSelection() {
         const selectedBrands = [];
         $brandsList.find('.active').each(function () {
@@ -61,7 +66,7 @@ jQuery(document).ready(function ($) {
         const brands = $productsParams.find('input[name="brand"]').val();
         const currentPage = $productsParams.find('input[name="page"]').val() || 1;
 
-        axios.get(`${apiBase}/category-brand-products`, { params: { category: categoryId, brands: brands, page: currentPage } })
+        axios.get(`${apiBase}/category-brand-products`, { params: { category: categoryId, brands: brands, page: currentPage, sort: $sortSelect.val() } })
             .then(response => {
                 const { products, total, max_num_pages } = response.data;
                 $resultsContainer.html(''); // Clear existing products
@@ -101,6 +106,14 @@ jQuery(document).ready(function ($) {
 
     fetchProducts(); // Fetch products with the initial page
 
+
+    $('.products-page__content__products__header__actions__grid-selector__item i').on('click', function () {
+        const $this = $(this).parent();
+        if ($this.hasClass('active')) return;
+        $('.products-page__content__products__header__actions__grid-selector__item').removeClass('active');
+        $this.addClass('active');
+        $resultsContainer.css('--columns', $this.attr('data-grid'));
+    });
 });
 
 

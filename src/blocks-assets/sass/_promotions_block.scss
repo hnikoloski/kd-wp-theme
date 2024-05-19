@@ -17,6 +17,10 @@
             .kd-promotions-block__promotion__content__validity {
                 right: auto;
                 left: 2rem;
+
+                @media (max-width:768px) {
+                    left: 1rem;
+                }
             }
         }
 
@@ -37,11 +41,21 @@
             flex-direction: column;
             flex-wrap: wrap;
 
+            @media (max-width:768px) {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
             &__title {
                 font-size: 5rem;
                 line-height: 1.28;
                 margin-bottom: 8rem;
                 text-align: center;
+
+                @media (max-width:768px) {
+                    font-size: 1.6rem;
+                    margin-bottom: 2rem;
+                }
             }
 
             &__validity {
@@ -50,6 +64,12 @@
                 right: 2rem;
                 font-size: 1.6rem;
                 color: #fff;
+
+                @media (max-width:768px) {
+                    font-size: 1.2rem;
+                    top: 1rem;
+                    right: 1rem;
+                }
 
                 &::before {
                     content: "*";

@@ -1,6 +1,5 @@
 @use '../../sass/helpers/variables' as vars;
 
-
 .kd-hero-inner-block {
     &__content {
         padding: 14rem vars.$sidePadding 0 vars.$sidePadding;
@@ -10,6 +9,10 @@
         justify-content: space-between;
         margin-bottom: 5.7rem;
 
+        @media (max-width: 768px) {
+            padding: 5rem vars.$sidePadding 0 vars.$sidePadding;
+        }
+
         &__title {
             font-weight: 700;
             font-size: 6.4rem;
@@ -17,6 +20,12 @@
             position: relative;
             padding-right: 1.5rem;
             max-width: 50%;
+
+            @media (max-width: 768px) {
+                font-size: 2.6rem;
+                padding-right: 0;
+                max-width: 100%;
+            }
 
             &::after {
                 content: "";

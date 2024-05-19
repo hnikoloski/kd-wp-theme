@@ -40,6 +40,13 @@ add_action('rest_api_init', function () use ($nameSpace) {
         'callback' => 'get_product_price_quote',
         'permission_callback' => '__return_true',
     ));
+
+    // Salons Gallery
+    register_rest_route($nameSpace, '/salons-gallery', array(
+        'methods' => 'GET',
+        'callback' => 'get_salons_gallery',
+        'permission_callback' => '__return_true',
+    ));
 });
 
 

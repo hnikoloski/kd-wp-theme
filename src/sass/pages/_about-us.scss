@@ -40,6 +40,10 @@
             padding-left: vars.$sidePadding;
             padding-right: vars.$sidePadding;
 
+            @media (max-width:768px) {
+                margin-bottom: 2.5rem;
+            }
+
             &:nth-of-type(odd) {
                 flex-direction: row-reverse;
             }
@@ -54,11 +58,19 @@
                 .about-us-page__content__section__text__description {
                     padding-right: 0;
                     padding-left: 4.5rem;
+
+                    @media (max-width:768px) {
+                        padding-left: 0;
+                    }
                 }
 
                 .about-us-page__content__section__text__title {
                     // padding-right: 4.5rem;
                     padding-left: 4.5rem;
+
+                    @media (max-width:768px) {
+                        padding-left: 0;
+                    }
                 }
             }
 
@@ -74,8 +86,24 @@
                 }
             }
 
+            &__image {
+                @media (max-width:768px) {
+                    order: 1;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+
             &__text {
                 position: relative;
+
+                @media (max-width:768px) {
+                    order: 2;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    width: 100%;
+                }
 
                 &__title {
                     font-size: 4.4rem;
@@ -106,6 +134,10 @@
                     position: relative;
                     padding-right: 4.5rem;
 
+                    @media (max-width:768px) {
+                        padding-right: 0;
+                    }
+
                     p {
                         font-size: 2rem;
                         color: #111;
@@ -117,12 +149,22 @@
                 }
             }
 
+
             &__smaller-image {
                 position: absolute;
                 bottom: -5rem;
                 right: -15%;
                 max-width: 35rem;
                 z-index: 1;
+
+                @media (max-width:1440px) {
+                    bottom: -10rem;
+                    max-width: 25rem;
+                }
+
+                @media (max-width:768px) {
+                    display: none;
+                }
             }
         }
     }

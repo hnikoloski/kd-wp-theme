@@ -53,8 +53,29 @@ get_header(); ?>
         <div class="products-page__content__products">
             <div class="products-page__content__products__header">
                 <h2 class="products-page__content__products__header__title">Products</h2>
+                <div class="products-page__content__products__header__actions">
+                    <ul class="products-page__content__products__header__actions__grid-selector">
+                        <li class="products-page__content__products__header__actions__grid-selector__item" data-grid="2">
+                            <i class="grid-2x2"></i>
+                        </li>
+                        <li class="products-page__content__products__header__actions__grid-selector__item" data-grid="3">
+                            <i class="grid-3x3"></i>
+                        </li>
+                        <li class="products-page__content__products__header__actions__grid-selector__item" data-grid="4">
+                            <i class="grid-4x4"></i>
+                        </li>
+                    </ul>
+                    <div class="products-page__content__products__header__actions__sort">
+                        <p>Sort by:</p>
+                        <select name="sort" id="sort">
+                            <option value="date">Newest</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="products-page__content__products__results">
+            <div class="products-page__content__products__results" style="--columns: 3;">
                 <?php
                 $args = array(
                     'post_type' => 'product',

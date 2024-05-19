@@ -59,4 +59,18 @@ jQuery(document).ready(function ($) {
                 $form.removeClass('loading');
             });
     });
+
+    $('.single-product__content__info__footer__share-btns li .copy-link').on('click', function (e) {
+        e.preventDefault();
+        const urlToCopy = window.location.href; // Gets the current page URL
+
+        // Using the navigator clipboard API to copy the text
+        navigator.clipboard.writeText(urlToCopy).then(function () {
+            console.log('URL successfully copied to clipboard');
+            alert('URL copied to clipboard!');
+        }).catch(function (error) {
+            console.error('Error copying text: ', error);
+            alert('Failed to copy URL. Please try again.');
+        });
+    });
 });

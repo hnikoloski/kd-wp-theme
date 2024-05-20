@@ -5,6 +5,10 @@
     padding: 7rem vars.$sidePadding 3.5rem vars.$sidePadding;
     margin-bottom: 3.5rem;
 
+    @media (max-width: 768px) {
+        padding-top: 0;
+    }
+
     &:not(:last-of-type) {
         border-bottom: 1px solid rgba(0, 0, 0, 0.141);
     }
@@ -13,11 +17,20 @@
         &__image {
             max-width: 25rem;
             margin-bottom: 1rem;
+
+            @media (max-width: 768px) {
+                max-width: 16.5rem;
+            }
         }
 
         &__description {
             font-size: 3.8rem;
             margin-bottom: 3.2rem;
+
+            @media (max-width: 768px) {
+                font-size: 1.4rem;
+                margin-bottom: 1.4rem;
+            }
         }
     }
 
@@ -37,10 +50,18 @@
 
             &.image-height-high {
                 height: 80.6rem;
+
+                @media (max-width: 768px) {
+                    height: 27rem;
+                }
             }
 
             &.image-height-medium {
                 height: 54.3rem;
+
+                @media (max-width: 768px) {
+                    height: 17.2rem;
+                }
             }
 
             &:hover {

@@ -11,6 +11,7 @@
 
         @media (max-width: 768px) {
             padding: 5rem vars.$sidePadding 0 vars.$sidePadding;
+            display: block;
         }
 
         &__title {
@@ -25,6 +26,8 @@
                 font-size: 2.6rem;
                 padding-right: 0;
                 max-width: 100%;
+                width: fit-content;
+                width: -moz-fit-content;
             }
 
             &::after {
@@ -36,6 +39,11 @@
                 height: .6rem;
                 background: vars.$red;
                 border-radius: 8px;
+
+                @media (max-width: 768px) {
+                    height: 3px;
+                    width: 80%;
+                }
             }
         }
 
@@ -44,12 +52,23 @@
             max-width: 50%;
             width: 50%;
 
+            @media (max-width: 768px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                width: 100%;
+                margin-top: 2.5rem;
+            }
+
             p {
                 color: #000;
                 font-size: 4rem;
                 line-height: 1.21;
                 font-family: $spaceG;
                 font-weight: 400;
+
+                @media (max-width: 768px) {
+                    font-size: 1.4rem;
+                }
 
                 &:not(:last-of-type) {
                     margin-bottom: 2.5rem;

@@ -227,6 +227,10 @@
                 padding-bottom: 13.5rem;
                 margin-bottom: 4.8rem;
 
+                @media (max-width: 768px) {
+                    padding-bottom: 4rem;
+                }
+
                 &__header {
                     display: flex;
                     align-content: center;
@@ -234,6 +238,10 @@
                     justify-content: space-between;
                     flex-wrap: wrap;
                     margin-bottom: 3rem;
+
+                    @media (max-width: 768px) {
+                        display: block;
+                    }
 
                     &__title {
                         color: #111;
@@ -249,6 +257,8 @@
                         justify-content: space-between;
                         flex-wrap: wrap;
 
+
+
                         &__grid-selector {
                             display: flex;
                             align-content: center;
@@ -258,6 +268,14 @@
                             flex: 0 0 14rem;
                             max-width: 14rem;
                             width: 14rem;
+
+                            @media (max-width: 768px) {
+                                flex: 0 0 100%;
+                                max-width: 100%;
+                                width: 100%;
+                                order: 2;
+                                display: none;
+                            }
 
                             &__item {
                                 flex: 0 0 33%;
@@ -274,6 +292,10 @@
                                     width: 1.8rem;
                                     height: 1.8rem;
                                     cursor: pointer;
+
+                                    @media (max-width: 768px) {
+                                        margin: 0 auto;
+                                    }
 
                                     &.grid-2x2 {
                                         background: url('../assets/images/grid-2x2.svg');
@@ -305,6 +327,12 @@
                             align-items: center;
                             justify-content: flex-start;
                             flex-wrap: wrap;
+
+                            @media (max-width: 768px) {
+                                order: 1;
+                                margin-top: 2rem;
+                                margin-bottom: 2rem;
+                            }
 
                             p {
                                 font-size: 2.2rem;
@@ -342,9 +370,18 @@
                     column-gap: 2.2rem;
                     row-gap: 12rem;
 
+                    @media (max-width: 768px) {
+                        column-gap: 1.2rem;
+                        row-gap: 3rem;
+                    }
+
                     .kd-filterable-products-block__results__item {
                         flex: 0 0 calc(100% / (var(--columns)) - 2rem);
                         max-width: calc(100% / (var(--columns)) - 2rem);
+
+                        @media (max-width: 768px) {
+                            --columns: 2;
+                        }
                     }
                 }
 

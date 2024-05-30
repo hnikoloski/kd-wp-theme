@@ -1,5 +1,7 @@
 import axios from "axios";
 import imagesLoaded from 'imagesloaded';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 jQuery(document).ready(function ($) {
 
@@ -34,6 +36,7 @@ jQuery(document).ready(function ($) {
         $('.kd-salons-gallery-block').addClass("loading");
         axios.get(API_URL, { params: { salon_id: salon_id } })
             .then(response => displaySalons(response.data))
+            .then(() => imagesLoaded('.kd-salons-gallery-block__gallery-results', initFancybox))
             .catch(error => handleError(error));
     }
 
@@ -41,12 +44,9 @@ jQuery(document).ready(function ($) {
         $salonsGalleryResults.empty(); // Clear existing content
         if (images.length > 0) {
             const imagesHtml = images.map(image => {
-                return `<div class="gallery-item"><img src="${image.url}" alt="${image.alt}" class="gallery-image"></div>`;
+                return `<a class="gallery-item" data-fancybox="saloon" href="${image.url}"><img src="${image.url}" alt="${image.alt}" class="gallery-image"></a>`;
             }).join('');
             $salonsGalleryResults.append(`${imagesHtml}`);
-
-
-
         } else {
             $salonsGalleryResults.append('<p>No images found.</p>');
         }
@@ -57,6 +57,11 @@ jQuery(document).ready(function ($) {
         console.error('An error occurred:', error);
         $salonsGalleryResults.html('<p>Error loading galleries.</p>');
         $('.kd-salons-gallery-block').removeClass("loading");
+    }
+
+    function initFancybox() {
+        Fancybox.bind("[data-fancybox]", {
+        });
     }
 
 });

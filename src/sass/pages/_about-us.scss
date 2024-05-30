@@ -8,6 +8,11 @@
         margin-bottom: 10rem;
         padding: 14rem vars.$sidePadding 0 vars.$sidePadding;
 
+        @media (max-width: 768px) {
+            padding: 5rem vars.$sidePadding 0 vars.$sidePadding;
+            display: block;
+        }
+
         &__title {
             font-size: 6.4rem;
             font-weight: 500;
@@ -17,6 +22,14 @@
             width: -moz-fit-content;
             position: relative;
 
+            @media (max-width: 768px) {
+                font-size: 2.6rem;
+                padding-right: 0;
+                max-width: 100%;
+                width: fit-content;
+                width: -moz-fit-content;
+            }
+
             &::after {
                 content: "";
                 position: absolute;
@@ -25,6 +38,11 @@
                 width: 90%;
                 height: 0.6rem;
                 background: vars.$red;
+
+                @media (max-width: 768px) {
+                    height: 3px;
+                    width: 80%;
+                }
             }
         }
     }
@@ -42,10 +60,15 @@
 
             @media (max-width:768px) {
                 margin-bottom: 2.5rem;
+                justify-content: flex-start;
             }
 
             &:nth-of-type(odd) {
                 flex-direction: row-reverse;
+
+                @media (max-width:768px) {
+                    flex-direction: column;
+                }
             }
 
             &:nth-of-type(even) {
@@ -92,6 +115,7 @@
                     flex: 0 0 100%;
                     max-width: 100%;
                     width: 100%;
+                    margin-bottom: 2.5rem;
                 }
             }
 
@@ -115,6 +139,11 @@
                     position: relative;
                     width: fit-content;
                     width: -moz-fit-content;
+
+                    @media (max-width: 768px) {
+                        font-size: 2rem;
+                        margin-bottom: 2.5rem;
+                    }
 
                     &::after {
                         content: "";
@@ -141,6 +170,10 @@
                     p {
                         font-size: 2rem;
                         color: #111;
+
+                        @media (max-width: 768px) {
+                            font-size: 1.8rem;
+                        }
 
                         &:not(:last-of-type) {
                             margin-bottom: 1.5em;

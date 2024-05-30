@@ -222,4 +222,61 @@
             }
         }
     }
+
+    &.contact-page {
+
+
+        .kd-contact-block__title {
+
+            position: relative;
+            width: fit-content;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -0.9rem;
+                left: 0;
+                width: 90%;
+                height: 0.6rem;
+                background: vars.$red;
+                border-radius: 8px;
+
+                &::before {
+                    height: 0.3rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                text-align: left;
+                font-weight: 700;
+                line-height: 1.28;
+                position: relative;
+                width: fit-content;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -.9rem;
+                    left: 0;
+                    background: vars.$red;
+                    border-radius: 8px;
+                    height: 3px;
+                    width: 80%;
+                }
+            }
+        }
+
+        .kd-contact-block__content {
+            @media (max-width: 768px) {
+                padding-left: 1.6rem;
+                padding-right: 1.6rem;
+            }
+        }
+
+        .kd-contact-block__submit {
+            @media (max-width: 768px) {
+                margin-left: auto;
+            }
+        }
+    }
 }

@@ -20,6 +20,51 @@
         padding: 3.7rem 1.6rem;
     }
 
+    .mob-wrapper {
+        display: none;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .header-phone-number {
+        display: none;
+
+        @media screen and (max-width: 768px) {
+            display: inline-block;
+            margin-right: 1.3rem;
+            padding-right: 1.3rem;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 4.5rem;
+                background: #0F0F0F;
+                opacity: 0.15;
+            }
+        }
+
+        i {
+            display: block;
+            width: 1.8rem;
+            height: 1.8rem;
+            background: url("../../assets/images/phone-icon.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
     &.sticky {
         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
     }
@@ -206,10 +251,9 @@
         }
 
         @media screen and (max-width: 768px) {
-            display: block;
-            transition: transform 250ms ease-in;
-            transform: translateX(300%);
-            display: block;
+            transition: transform .25s ease-in;
+            transform: translate(300%);
+            display: flex;
             position: fixed;
             width: 50%;
             height: 100%;
@@ -217,6 +261,12 @@
             top: 0;
             right: 0;
             background: #fff;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
 
             &.active {
                 transform: translateX(0);
@@ -227,6 +277,9 @@
                 padding: 1.1rem 2.4rem;
                 background: vars.$red;
                 position: relative;
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 100%;
 
                 p {
                     color: #fff;
@@ -272,6 +325,9 @@
             @media screen and (max-width: 768px) {
                 display: block;
                 padding: 0 2.4rem;
+                width: 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
             }
 
             li {
@@ -475,6 +531,10 @@ body {
     z-index: 4024;
     transform: scale(0);
     transition: transform 250ms ease-in;
+
+    @media screen and (max-width: 768px) {
+        bottom: 7.2rem;
+    }
 
     &.active {
         transform: scale(1);

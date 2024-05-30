@@ -179,3 +179,15 @@
         }
     }
 }
+
+.hide-mobile {
+    @media (max-width: 768px) {
+        display: none !important;
+    }
+}
+
+.hide-desktop {
+    @media (min-width: 769px) {
+        display: none !important;
+    }
+}

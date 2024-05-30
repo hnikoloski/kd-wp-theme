@@ -41,6 +41,26 @@
             "append": ""
         },
         {
+            "key": "field_66563afc84c20",
+            "label": "Mobile Phone Num",
+            "name": "mobile_phone_num",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_64d7a9d697610",
             "label": "Cookie Policy Banner",
             "name": "",
@@ -257,5 +277,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712176060
+    "modified": 1716928471
 }

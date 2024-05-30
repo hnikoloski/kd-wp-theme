@@ -60,7 +60,7 @@
 
                 <?php
                 // Language switcher
-                echo do_shortcode('[language-switcher]');
+                // echo do_shortcode('[language-switcher]');
                 ?>
                 <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
                     <label>
@@ -70,16 +70,17 @@
                     <button type="submit" class="search-submit"><i></i><span class="screen-reader-text">Search</span></button>
                 </form>
             </nav><!-- #site-navigation -->
-
-            <div id="menu-trigger">
-                <p>MENU</p>
-                <div class="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="mob-wrapper">
+                <a href="tel:<?= get_field('mobile_phone_num', 'option'); ?>" class="header-phone-number"><i></i></a>
+                <div id="menu-trigger">
+                    <p>MENU</p>
+                    <div class="hamburger-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
-            </ul>
         </header><!-- #masthead -->
 
         <a id="back-to-top" href="#page" class="back-to-top" aria-label="Back to top">

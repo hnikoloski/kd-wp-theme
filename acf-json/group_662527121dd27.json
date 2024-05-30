@@ -79,7 +79,7 @@
                 "taxonomy"
             ],
             "return_format": "object",
-            "min": 5,
+            "min": "",
             "max": "",
             "elements": "",
             "bidirectional": 0,
@@ -104,5 +104,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716139110
+    "modified": 1716935747
 }

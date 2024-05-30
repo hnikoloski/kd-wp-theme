@@ -27,6 +27,10 @@ jQuery(document).ready(function ($) {
             nextEl: '.single-product__content .swiper-button-next',
             prevEl: '.single-product__content .swiper-button-prev',
         },
+        pagination: {
+            el: '.single-product__content .swiper-pagination',
+            clickable: true,
+        },
     });
 
 

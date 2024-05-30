@@ -9,4 +9,8 @@ jQuery(document).ready(function ($) {
   }
 
   $('body').removeClass('overflow-hidden');
+
+  setTimeout(function () {
+    $('#preloader').fadeOut();
+  }, 500);
 });

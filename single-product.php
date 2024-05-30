@@ -13,6 +13,8 @@ get_header();
 
 <main id="primary" class="site-main">
 	<div class="single-product__top-bar">
+		<h1 class="single-product__content__info__title hide-desktop"><?php the_title(); ?></h1>
+
 		<?php
 		custom_breadcrumbs();
 
@@ -63,8 +65,10 @@ get_header();
 					</div>
 					<div class="swiper-button-prev"></div>
 					<div class="swiper-button-next"></div>
+
+					<div class="swiper-pagination"></div>
 				</div>
-				<div class="product-slider-thumbs swiper" thumbsSlider="">
+				<div class="product-slider-thumbs swiper hide-mobile" thumbsSlider="">
 					<div class="swiper-wrapper">
 						<?php
 						foreach ($all_image_urls as $url) {
@@ -78,8 +82,26 @@ get_header();
 			<?php }
 			?>
 		</div>
+		<ul class="single-product__content__info__footer__share-btns hide-desktop w-fit-content">
+			<li>
+				<a href="mailto:?subject=<?php the_title(); ?>&body=<?php the_permalink(); ?>" class="single-product__content__info__footer__share-btns__item">
+					<i class="icon icon--email"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="single-product__content__info__footer__share-btns__item">
+					<i class="icon icon--facebook"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#copyLink" class="single-product__content__info__footer__share-btns__item copy-link">
+					<i class="icon icon--copy"></i>
+				</a>
+			</li>
+
+		</ul>
 		<div class="single-product__content__info">
-			<h1 class="single-product__content__info__title"><?php the_title(); ?></h1>
+			<h1 class="single-product__content__info__title hide-mobile"><?php the_title(); ?></h1>
 			<?php
 			// Short description
 			if (has_excerpt()) {
@@ -131,7 +153,7 @@ get_header();
 			<div class="single-product__content__info__footer">
 				<button class="single-product__content__info__get-price button button--primary button--medium">Get a price</button>
 
-				<ul class="single-product__content__info__footer__share-btns">
+				<ul class="single-product__content__info__footer__share-btns hide-mobile">
 					<li>
 						<a href="mailto:?subject=<?php the_title(); ?>&body=<?php the_permalink(); ?>" class="single-product__content__info__footer__share-btns__item">
 							<i class="icon icon--email"></i>
@@ -216,7 +238,7 @@ get_header();
 	<div class="single-product__modal__dialog">
 		<div class="single-product__modal__dialog__content">
 			<button class="single-product__modal__dialog__close-button">
-				x
+				<i></i>
 			</button>
 			<p>Leave your information below, and our dedicated team will reach out to provide you with tailored pricing options and answer any questions you may have.</p>
 			<form class="single-product__modal__dialog__form" novalidate>

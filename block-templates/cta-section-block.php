@@ -21,6 +21,14 @@ $bgColor = get_field('background_color') ? get_field('background_color') : '#191
 
 <div <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>" style="--bg-color:<?php echo $bgColor; ?>">
     <div class="kd-cta-section-block__wrapper page-padding-x">
+        <?php if (get_field('title')) : ?>
+            <?php
+            $title_tag = get_field('title_tag') ? get_field('title_tag') : 'h2';
+            ?>
+            <?php
+            printf('<%s class="kd-cta-section-block__content__title color-white hide-desktop mx-auto">%s</%s>', $title_tag, get_field('title'), $title_tag);
+            ?>
+        <?php endif; ?>
         <div class="kd-cta-section-block__image">
             <?php
             if (get_field('image')) :
@@ -35,7 +43,7 @@ $bgColor = get_field('background_color') ? get_field('background_color') : '#191
                 $title_tag = get_field('title_tag') ? get_field('title_tag') : 'h2';
                 ?>
                 <?php
-                printf('<%s class="kd-cta-section-block__content__title color-white">%s</%s>', $title_tag, get_field('title'), $title_tag);
+                printf('<%s class="kd-cta-section-block__content__title color-white hide-mobile">%s</%s>', $title_tag, get_field('title'), $title_tag);
                 ?>
             <?php endif; ?>
 

@@ -259,3 +259,13 @@ function custom_breadcrumbs()
     // Close container
     echo '</ul>';
 }
+
+
+// Get acf repeater field from options page
+$translationsField = get_field('translation_strings', 'option');
+
+// Loop through repeater field
+foreach ($translationsField as $translation) {
+    // Register Polylang String
+    pll_register_string('tamtam', $translation['string'], 'tamtam');
+}

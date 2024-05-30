@@ -18,11 +18,12 @@ get_header(); ?>
                 $smaller_image = get_sub_field('smaller_image');
         ?>
                 <div class="about-us-page__content__section">
+                    <h2 class="about-us-page__content__section__text__title hide-desktop"><?php echo esc_html($title); ?></h2>
                     <div class="about-us-page__content__section__image">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($title); ?>" class="full-size-img full-size-img-cover">
                     </div>
                     <div class="about-us-page__content__section__text">
-                        <h2 class="about-us-page__content__section__text__title"><?php echo esc_html($title); ?></h2>
+                        <h2 class="about-us-page__content__section__text__title hide-mobile"><?php echo esc_html($title); ?></h2>
                         <div class="about-us-page__content__section__text__description"><?php echo $description; ?></div>
                         <?php if ($smaller_image) : ?>
                             <div class="about-us-page__content__section__smaller-image">

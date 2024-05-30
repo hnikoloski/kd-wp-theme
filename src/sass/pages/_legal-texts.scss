@@ -3,28 +3,52 @@
 .legal-texts-page {
     padding: 0 vars.$sidePadding 18rem vars.$sidePadding;
 
+    @media (max-width: 768px) {
+        padding-bottom: 1.27rem;
+    }
+
     p {
         font-size: 2.6rem;
 
         &:not(:last-of-type) {
             margin-bottom: 1.5em;
         }
+
+        @media (max-width: 768px) {
+            font-size: 1.4rem;
+        }
     }
 
     h1 {
         font-size: 6.4rem;
+
+        @media (max-width: 768px) {
+            font-size: 2.6rem;
+        }
     }
 
     h2 {
         font-size: 4.8rem;
+
+        @media (max-width: 768px) {
+            font-size: 2.2rem;
+        }
     }
 
     h3 {
         font-size: 4rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
     }
 
     h4 {
         font-size: 3.2rem;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+        }
     }
 
     h5 {

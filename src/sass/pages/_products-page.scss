@@ -6,6 +6,10 @@
     .products-page {
         padding-bottom: 18rem;
 
+        @media (max-width: 768px) {
+            padding-bottom: 7rem;
+        }
+
         &__hero {
             padding-left: $sidePadding;
             display: flex;

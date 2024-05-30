@@ -33,4 +33,10 @@ if (function_exists('acf_add_options_page')) {
         'menu_title'    => 'Promotion banner',
         'parent_slug'   => 'tamtam-general-settings',
     ));
+    // Translations
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Translations',
+        'menu_title'    => 'Translations',
+        'parent_slug'   => 'tamtam-general-settings',
+    ));
 }

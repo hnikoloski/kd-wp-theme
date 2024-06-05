@@ -2,9 +2,9 @@ import axios from 'axios';
 
 jQuery(document).ready(function ($) {
     let home_url = window.location.origin;
-    let api_url = home_url + '/wp-json/kd/v1/auto-complete-search';
+    let api_url = home_url + '/wp-json/tamtam/v1/auto-complete-search';
 
-    const searchInput = $('#masthead .search-field');
+    const searchInput = $('#masthead .main-navigation .search-form label input');
 
     searchInput.on('keyup', function () {
         let searchValue = $(this).val();
@@ -31,7 +31,7 @@ jQuery(document).ready(function ($) {
                     if (data.length > 0) {
                         searchResults.show();
                         data.forEach(function (item) {
-                            searchResults.append('<li class="search-results-item"><div class="img-wrapper"><img src="' + item.image + '" alt="' + item.title + '"></div><div class="title">' + item.title + '</div></li>');
+                            searchResults.append('<li class="search-results-item" data-href="' + item.permalink + '"><div class="img-wrapper"><img src="' + item.image + '" alt="' + item.title + '"></div><div class="title">' + item.title + '</div></li>');
                         });
 
                     } else {
@@ -47,6 +47,14 @@ jQuery(document).ready(function ($) {
                         searchInput.val(productTitle);
                         searchInput.parent().submit();
                         searchInput.parent().find('.search-results').remove();
+
+                        // Redirect to the product page
+                        let productUrl = $(this).attr('data-href');
+
+                        window.location.href = productUrl;
+
+
+
                     });
                 })
                 .catch(function (error) {

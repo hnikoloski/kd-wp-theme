@@ -1,12 +1,14 @@
 <?php
-// Template Name: Products Page
+// Product Cat page
+get_header();
 
-get_header(); ?>
+$currentCatId = get_queried_object_id();
+$currentTerm = get_term($currentCatId);
 
-
+?>
 <div class="products-page">
     <div class="products-page__hero">
-        <h1 class="products-page__hero__title"><?php the_title(); ?></h1>
+        <h1 class="products-page__hero__title"><?php echo $currentTerm->name; ?></h1>
         <div class="products-page__hero__image">
             <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover d-block">
         </div>
@@ -14,7 +16,7 @@ get_header(); ?>
 
     <div class="products-page__content">
         <form class="d-none products-params" id="products-params">
-            <input type="hidden" name="category" value="">
+            <input type="hidden" name="category" value="<?php echo $currentCatId; ?>">
             <input type="hidden" name="brand" value="">
             <input type="hidden" name="sort" value="">
             <input type="hidden" name="page" value="1">
@@ -26,8 +28,9 @@ get_header(); ?>
                     <?php
                     $woo_product_categories = get_terms('product_cat', array('hide_empty' => 0));
                     foreach ($woo_product_categories as $woo_product_category) {
+                        $is_active = $currentCatId == $woo_product_category->term_id ? 'active' : '';
                     ?>
-                        <li class="products-page__content-filters__category__item follow-link" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
+                        <li class="products-page__content-filters__category__item  <?php echo $is_active; ?>" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
                             <?php
                             $thumbnail_id = get_term_meta($woo_product_category->term_id, 'thumbnail_id', true);
                             $image_url = wp_get_attachment_url($thumbnail_id);
@@ -47,15 +50,22 @@ get_header(); ?>
                 <p class="products-page__content-filters__brand__toggle">Choose a Brand</p>
                 <ul class="products-page__content-filters__brand__list">
                     <?php
-                    //<li class="products-page__content-filters__brand__list__item" data-brand="${brand.id}">${brand.name}</li>
                     $brands = array();
                     $brand_ids = array(); // Array to keep track of brand IDs to avoid duplicates
 
                     $args = array(
                         'post_type' => 'product',
                         'posts_per_page' => -1,
-                        'fields' => 'ids'
+                        'fields' => 'ids',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id',
+                                'terms' => $currentCatId,
+                            ),
+                        ),
                     );
+
                     $query = new WP_Query($args);
 
                     // Loop through product IDs
@@ -90,8 +100,6 @@ get_header(); ?>
                     <?php
                     }
                     ?>
-
-
                 </ul>
             </div>
         </div>

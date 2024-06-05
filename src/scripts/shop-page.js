@@ -8,6 +8,7 @@ jQuery(document).ready(function ($) {
     const $resultsContainer = $('.products-page__content__products__results');
     const $pagination = $('.products-page__content__products__pagination');
     const $sortSelect = $('.products-page__content__products__header__actions__sort select');
+    const $brandsToggle = $('.products-page__content-filters__brand__toggle');
 
     $categoryItems.on('click', function (e) {
         e.preventDefault();
@@ -21,6 +22,12 @@ jQuery(document).ready(function ($) {
         $productsParams.find('input[name="category"]').val($this.attr('data-category'));
 
         const categoryId = $this.attr('data-category');
+
+        if ($(this).hasClass('follow-link')) {
+            window.location.href = $(this).attr('data-link');
+            return;
+        }
+
         axios.get(`${apiBase}/category-brands`, { params: { category: categoryId } })
             .then(response => {
                 const brands = response.data;
@@ -46,6 +53,12 @@ jQuery(document).ready(function ($) {
         $(this).toggleClass('active');
         updateBrandSelection();
     });
+    $brandsList.slideUp(); // Hide brands list by default
+    $brandsToggle.on('click', function (e) {
+        e.preventDefault();
+        $(this).toggleClass('active');
+        $brandsList.slideToggle();
+    }); // Toggle brands list
 
     $sortSelect.on('change', function () {
         $productsParams.find('input[name="sort"]').val($(this).val());

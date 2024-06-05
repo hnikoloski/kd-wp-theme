@@ -62,12 +62,14 @@
                 // Language switcher
                 // echo do_shortcode('[language-switcher]');
                 ?>
+                <button id="search-trigger" class="search-trigger">
+                    <i></i>
+                </button>
                 <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
                     <label>
                         <span class="screen-reader-text">Search for:</span>
-                        <input type="search" class="search-field" placeholder="Search …" value="<?php echo get_search_query(); ?>" name="s" title="Search for:" />
-                    </label>
-                    <button type="submit" class="search-submit"><i></i><span class="screen-reader-text">Search</span></button>
+                        <input type="search" class="search-field" placeholder="Search …" value="<?php echo get_search_query(); ?>" name="s" title="Search for:" autocomplete="off" /> </label>
+                    <button class="search-close"><i></i><span class="screen-reader-text">Close</span></button>
                 </form>
             </nav><!-- #site-navigation -->
             <div class="mob-wrapper">

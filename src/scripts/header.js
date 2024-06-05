@@ -32,33 +32,21 @@ jQuery(document).ready(function ($) {
 
 
     // Attach event handler for the search button click
-    $("#masthead form .search-btn").on("click", function (event) {
-        // Prevent the default action if the button is disabled
-        if ($(this).hasClass("disabled")) {
-            event.preventDefault();
+    $("#masthead .main-navigation #search-trigger").on("click", function (e) {
+        e.preventDefault();
 
-            // Toggle the 'active' state of the form
-            $("#masthead form").toggleClass("active");
-
-            // Toggle 'search-open' class on the masthead
-            $("#masthead").toggleClass("search-open");
-
-            // Remove 'disabled' class from the button
-            $(this).removeClass("disabled");
-        }
-    });
-
-    // Attach event handler for the close button click
-    $("#masthead form .search-close").on("click", function (event) {
-        event.preventDefault();
-
+        $(this).toggle();
         // Toggle the 'active' state of the form
-        $("#masthead form").toggleClass("active");
+        $("#masthead .main-navigation ul").toggle();
 
-        // Toggle 'search-open' class on the masthead
-        $("#masthead").toggleClass("search-open");
-
-        // Add 'disabled' class back to the search button
-        $("#masthead form .search-btn").addClass("disabled");
+        $('#masthead .main-navigation .search-form').toggleClass('active');
     });
+
+    $('#masthead .main-navigation .search-close').on('click', function (e) {
+        e.preventDefault();
+        $("#masthead .main-navigation #search-trigger").toggle();
+        $("#masthead .main-navigation ul").toggle();
+        $('#masthead .main-navigation .search-form').toggleClass('active');
+    });
+
 });

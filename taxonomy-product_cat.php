@@ -4,13 +4,17 @@ get_header();
 
 $currentCatId = get_queried_object_id();
 $currentTerm = get_term($currentCatId);
-
+// Check if this is a top level category or a subcategory
+$isTopLevel = $currentTerm->parent == 0 ? true : false;
 ?>
 <div class="products-page">
     <div class="products-page__hero">
         <h1 class="products-page__hero__title"><?php echo $currentTerm->name; ?></h1>
         <div class="products-page__hero__image">
-            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover d-block">
+            <?php
+            $bannerUrl = get_field('product_category_image', 'product_cat_' . $currentCatId);
+            ?>
+            <img src="<?php echo $bannerUrl['url']; ?>" alt="<?php the_title(); ?>" class="full-size-img full-size-img-cover d-block">
         </div>
     </div>
 
@@ -22,15 +26,80 @@ $currentTerm = get_term($currentCatId);
             <input type="hidden" name="page" value="1">
         </form>
         <div class="products-page__content__filters">
+            <div class="hide-desktop products-page__content__filters__mob-bar">
+                <div class="products-page__content__products__header__actions__sort">
+                    <select name="sort" id="sort-mob">
+                        <option value="date">Newest</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="products-page__content-filters__brand__toggle-mob">Brands <i></i></div>
+                <div class="products-page__brands-sidebar">
+                    <div class="products-page__brands-sidebar__header">
+                        <p>Brands</p>
+                        <i></i>
+                    </div>
+                    <ul class="products-page__content-filters__brand__list">
+                        <?php
+                        //<li class="products-page__content-filters__brand__list__item" data-brand="${brand.id}">${brand.name}</li>
+                        $brands = array();
+                        $brand_ids = array(); // Array to keep track of brand IDs to avoid duplicates
+
+                        $args = array(
+                            'post_type' => 'product',
+                            'posts_per_page' => -1,
+                            'fields' => 'ids'
+                        );
+                        $query = new WP_Query($args);
+
+                        // Loop through product IDs
+                        if ($query->have_posts()) {
+                            foreach ($query->posts as $product_id) {
+                                $product_brands = get_field('brands', $product_id); // Fetch brands using the product ID
+
+                                // Loop through each brand related to the product
+                                if (!empty($product_brands)) {
+                                    foreach ($product_brands as $brand_id) {
+                                        // Check for duplicate brand IDs
+                                        if (!in_array($brand_id, $brand_ids)) {
+                                            $brand_ids[] = $brand_id; // Add brand ID to the tracker array
+                                            $brand_name = get_the_title($brand_id); // Get the brand name by its ID
+                                            $brands[] = array(
+                                                'id' => $brand_id,
+                                                'name' => $brand_name,
+                                            );
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        wp_reset_postdata();
+                        ?>
+
+                        <?php
+                        foreach ($brands as $brand) {
+                        ?>
+                            <li class="products-page__content-filters__brand__list__item" data-brand="<?php echo $brand['id']; ?>"><?php echo $brand['name']; ?></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
             <div class="products-page__content-filters__category">
-                <h2 class="products-page__content-filters__category__title">Product Category</h2>
+                <h2 class="products-page__content-filters__category__title">Subcategory</h2>
                 <ul class="products-page__content-filters__category__list">
                     <?php
-                    $woo_product_categories = get_terms('product_cat', array('hide_empty' => 0));
+                    $woo_product_categories = get_terms('product_cat', array(
+                        'hide_empty' => false,
+                        'parent' => $currentCatId,
+                    ));
                     foreach ($woo_product_categories as $woo_product_category) {
                         $is_active = $currentCatId == $woo_product_category->term_id ? 'active' : '';
                     ?>
-                        <li class="products-page__content-filters__category__item  <?php echo $is_active; ?>" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
+                        <li class="products-page__content-filters__category__item  <?php echo $is_active; ?> <?php echo !$isTopLevel ? 'follow-link' : ''; ?>" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
                             <?php
                             $thumbnail_id = get_term_meta($woo_product_category->term_id, 'thumbnail_id', true);
                             $image_url = wp_get_attachment_url($thumbnail_id);

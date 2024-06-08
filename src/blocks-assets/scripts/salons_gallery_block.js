@@ -4,7 +4,7 @@ import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 jQuery(document).ready(function ($) {
-
+    if ($('.kd-salons-gallery-block').length === 0) return;
     $('.kd-salons-gallery-block__toggler').on('click', function (e) {
         e.preventDefault();
         let toggleText = $(this).attr('data-active-text');

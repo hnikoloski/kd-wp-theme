@@ -20,80 +20,146 @@ get_header(); ?>
             <input type="hidden" name="page" value="1">
         </form>
         <div class="products-page__content__filters">
-            <div class="products-page__content-filters__category">
-                <h2 class="products-page__content-filters__category__title">Product Category</h2>
-                <ul class="products-page__content-filters__category__list">
-                    <?php
-                    $woo_product_categories = get_terms('product_cat', array('hide_empty' => 0));
-                    foreach ($woo_product_categories as $woo_product_category) {
-                    ?>
-                        <li class="products-page__content-filters__category__item follow-link" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
-                            <?php
-                            $thumbnail_id = get_term_meta($woo_product_category->term_id, 'thumbnail_id', true);
-                            $image_url = wp_get_attachment_url($thumbnail_id);
-                            if (!$image_url) {
-                                $image_url = wc_placeholder_img_src();
-                            }
-                            ?>
-                            <img src="<?php echo $image_url; ?>" alt="<?php echo $woo_product_category->name; ?>">
-                            <p><?php echo $woo_product_category->name; ?></p>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                </ul>
-            </div>
-            <div class="products-page__content-filters__brand">
-                <p class="products-page__content-filters__brand__toggle">Choose a Brand</p>
-                <ul class="products-page__content-filters__brand__list">
-                    <?php
-                    //<li class="products-page__content-filters__brand__list__item" data-brand="${brand.id}">${brand.name}</li>
-                    $brands = array();
-                    $brand_ids = array(); // Array to keep track of brand IDs to avoid duplicates
+            <div class="hide-desktop products-page__content__filters__mob-bar">
+                <div class="products-page__content__products__header__actions__sort">
+                    <select name="sort" id="sort-mob">
+                        <option value="date">Newest</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="products-page__content-filters__brand__toggle-mob">Brands <i></i></div>
+                <div class="products-page__brands-sidebar">
+                    <div class="products-page__brands-sidebar__header">
+                        <p>Brands</p>
+                        <i></i>
+                    </div>
+                    <ul class="products-page__content-filters__brand__list">
+                        <?php
+                        //<li class="products-page__content-filters__brand__list__item" data-brand="${brand.id}">${brand.name}</li>
+                        $brands = array();
+                        $brand_ids = array(); // Array to keep track of brand IDs to avoid duplicates
 
-                    $args = array(
-                        'post_type' => 'product',
-                        'posts_per_page' => -1,
-                        'fields' => 'ids'
-                    );
-                    $query = new WP_Query($args);
+                        $args = array(
+                            'post_type' => 'product',
+                            'posts_per_page' => -1,
+                            'fields' => 'ids'
+                        );
+                        $query = new WP_Query($args);
 
-                    // Loop through product IDs
-                    if ($query->have_posts()) {
-                        foreach ($query->posts as $product_id) {
-                            $product_brands = get_field('brands', $product_id); // Fetch brands using the product ID
+                        // Loop through product IDs
+                        if ($query->have_posts()) {
+                            foreach ($query->posts as $product_id) {
+                                $product_brands = get_field('brands', $product_id); // Fetch brands using the product ID
 
-                            // Loop through each brand related to the product
-                            if (!empty($product_brands)) {
-                                foreach ($product_brands as $brand_id) {
-                                    // Check for duplicate brand IDs
-                                    if (!in_array($brand_id, $brand_ids)) {
-                                        $brand_ids[] = $brand_id; // Add brand ID to the tracker array
-                                        $brand_name = get_the_title($brand_id); // Get the brand name by its ID
-                                        $brands[] = array(
-                                            'id' => $brand_id,
-                                            'name' => $brand_name,
-                                        );
+                                // Loop through each brand related to the product
+                                if (!empty($product_brands)) {
+                                    foreach ($product_brands as $brand_id) {
+                                        // Check for duplicate brand IDs
+                                        if (!in_array($brand_id, $brand_ids)) {
+                                            $brand_ids[] = $brand_id; // Add brand ID to the tracker array
+                                            $brand_name = get_the_title($brand_id); // Get the brand name by its ID
+                                            $brands[] = array(
+                                                'id' => $brand_id,
+                                                'name' => $brand_name,
+                                            );
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    wp_reset_postdata();
-                    ?>
+                        wp_reset_postdata();
+                        ?>
 
-                    <?php
-                    foreach ($brands as $brand) {
-                    ?>
-                        <li class="products-page__content-filters__brand__list__item" data-brand="<?php echo $brand['id']; ?>"><?php echo $brand['name']; ?></li>
-                    <?php
-                    }
-                    ?>
-
-
-                </ul>
+                        <?php
+                        foreach ($brands as $brand) {
+                        ?>
+                            <li class="products-page__content-filters__brand__list__item" data-brand="<?php echo $brand['id']; ?>"><?php echo $brand['name']; ?></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
             </div>
+        </div>
+        <div class="products-page__content-filters__category">
+            <h2 class="products-page__content-filters__category__title">Product Category</h2>
+            <ul class="products-page__content-filters__category__list">
+                <?php
+                $woo_product_categories = get_terms(array(
+                    'taxonomy'   => 'product_cat',
+                    'hide_empty' => false, // Or 'hide_empty' => 0
+                    'parent'     => 0
+                ));
+                foreach ($woo_product_categories as $woo_product_category) {
+                ?>
+                    <li class="products-page__content-filters__category__item follow-link" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
+                        <?php
+                        $thumbnail_id = get_term_meta($woo_product_category->term_id, 'thumbnail_id', true);
+                        $image_url = wp_get_attachment_url($thumbnail_id);
+                        if (!$image_url) {
+                            $image_url = wc_placeholder_img_src();
+                        }
+                        ?>
+                        <img src="<?php echo $image_url; ?>" alt="<?php echo $woo_product_category->name; ?>">
+                        <p><?php echo $woo_product_category->name; ?></p>
+                    </li>
+                <?php
+                }
+                ?>
+            </ul>
+        </div>
+        <div class="products-page__content-filters__brand">
+            <p class="products-page__content-filters__brand__toggle">Choose a Brand</p>
+            <ul class="products-page__content-filters__brand__list">
+                <?php
+                //<li class="products-page__content-filters__brand__list__item" data-brand="${brand.id}">${brand.name}</li>
+                $brands = array();
+                $brand_ids = array(); // Array to keep track of brand IDs to avoid duplicates
+
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => -1,
+                    'fields' => 'ids'
+                );
+                $query = new WP_Query($args);
+
+                // Loop through product IDs
+                if ($query->have_posts()) {
+                    foreach ($query->posts as $product_id) {
+                        $product_brands = get_field('brands', $product_id); // Fetch brands using the product ID
+
+                        // Loop through each brand related to the product
+                        if (!empty($product_brands)) {
+                            foreach ($product_brands as $brand_id) {
+                                // Check for duplicate brand IDs
+                                if (!in_array($brand_id, $brand_ids)) {
+                                    $brand_ids[] = $brand_id; // Add brand ID to the tracker array
+                                    $brand_name = get_the_title($brand_id); // Get the brand name by its ID
+                                    $brands[] = array(
+                                        'id' => $brand_id,
+                                        'name' => $brand_name,
+                                    );
+                                }
+                            }
+                        }
+                    }
+                }
+
+                wp_reset_postdata();
+                ?>
+
+                <?php
+                foreach ($brands as $brand) {
+                ?>
+                    <li class="products-page__content-filters__brand__list__item" data-brand="<?php echo $brand['id']; ?>"><?php echo $brand['name']; ?></li>
+                <?php
+                }
+                ?>
+
+
+            </ul>
         </div>
 
         <div class="products-page__content__products">

@@ -47,13 +47,17 @@ jQuery(document).ready(function ($) {
             .finally(() => {
                 $this.parent().removeClass('loading');
             });
+
     });
 
     $brandsList.on('click', '.products-page__content-filters__brand__list__item', function () {
         $(this).toggleClass('active');
         updateBrandSelection();
     });
-    $brandsList.slideUp(); // Hide brands list by default
+    // Check if on desktop
+    if (window.innerWidth > 768) {
+        $brandsList.slideUp(); // Hide brands list by default
+    }
     $brandsToggle.on('click', function (e) {
         e.preventDefault();
         $(this).toggleClass('active');
@@ -126,6 +130,17 @@ jQuery(document).ready(function ($) {
         $('.products-page__content__products__header__actions__grid-selector__item').removeClass('active');
         $this.addClass('active');
         $resultsContainer.css('--columns', $this.attr('data-grid'));
+    });
+
+    $('.products-page__content-filters__brand__toggle-mob').on('click', function () {
+        $(this).toggleClass('active');
+        $('body').toggleClass('menu-open');
+        $('.products-page__brands-sidebar').toggleClass('active');
+    });
+
+    $('.products-page__brands-sidebar__header').on('click', function () {
+        $('.products-page__brands-sidebar').toggleClass('active');
+        $('body').toggleClass('menu-open');
     });
 });
 

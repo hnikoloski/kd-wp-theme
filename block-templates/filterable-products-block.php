@@ -53,7 +53,7 @@ if (!empty($block['align'])) {
             <?php
             $products_archive_link =  get_post_type_archive_link('product');
             ?>
-            <a href="<?php echo $products_archive_link; ?>" class="kd-filterable-products-block__filters__see-more mob-hide">See More</a>
+            <a href="<?php echo $products_archive_link; ?>" class="kd-filterable-products-block__filters__see-more mob-hide"><?php pll_e('See More'); ?></a>
         </div>
 
         <?php
@@ -99,6 +99,6 @@ if (!empty($block['align'])) {
                 <?php endwhile; ?>
             </div>
         <?php endif; ?>
-        <a href="<?php echo $products_archive_link; ?>" class="kd-filterable-products-block__filters__see-more button button--just-text color-red desktop-hide">See More</a>
+        <a href="<?php echo $products_archive_link; ?>" class="kd-filterable-products-block__filters__see-more button button--just-text color-red desktop-hide"><?php pll_e('See More'); ?></a>
     </div>
 </div>

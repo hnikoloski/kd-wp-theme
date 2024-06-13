@@ -151,7 +151,7 @@ get_header();
 				<a class="single-product__content__info__download-brochure" href="<?php echo get_field('product_brochure')['url']; ?>" target="_blank">Technical Information →</a>
 			<?php endif; ?>
 			<div class="single-product__content__info__footer">
-				<button class="single-product__content__info__get-price button button--primary button--medium">Get a price</button>
+				<button class="single-product__content__info__get-price button button--primary button--medium"><?php pll_e('Get a price'); ?></button>
 
 				<ul class="single-product__content__info__footer__share-btns hide-mobile">
 					<li>
@@ -177,7 +177,7 @@ get_header();
 	</div>
 
 	<div class="single-product__similar-products">
-		<h2 class="single-product__similar-products__title">Similar Products</h2>
+		<h2 class="single-product__similar-products__title"><?php pll_e('Similar Products'); ?></h2>
 		<div class="single-product__similar-products__products swiper">
 			<div class="swiper-wrapper">
 				<?php
@@ -240,25 +240,25 @@ get_header();
 			<button class="single-product__modal__dialog__close-button">
 				<i></i>
 			</button>
-			<p>Leave your information below, and our dedicated team will reach out to provide you with tailored pricing options and answer any questions you may have.</p>
+			<p><?php pll_e('Leave your information below, and our dedicated team will reach out to provide you with tailored pricing options and answer any questions you may have.'); ?></p>
 			<form class="single-product__modal__dialog__form" novalidate>
 				<div class="single-product__modal__dialog__form__group">
-					<label for="full_name">Full Name</label>
-					<input type="text" id="full_name" name="full_name" required placeholder="Full Name">
+					<label for="full_name"><?php pll_e('Full Name'); ?></label>
+					<input type="text" id="full_name" name="full_name" required placeholder="<?php pll_e('Full Name'); ?>">
 				</div>
 				<div class="single-product__modal__dialog__form__group">
-					<label for="email">E-Mail Address</label>
+					<label for="email"><?php pll_e('E-Mail Address'); ?></label>
 					<input type="email" id="email" name="email" required placeholder="your@email.com">
 				</div>
 				<div class="single-product__modal__dialog__form__group">
-					<label for="phone">Phone Number</label>
+					<label for="phone"><?php pll_e('Phone Number'); ?></label>
 					<input type="text" id="phone" name="phone" required placeholder="+38975123456">
 				</div>
 				<input type="hidden" name="product_id" value="<?php echo get_the_ID(); ?>">
 
 				<div class="single-product__modal__dialog__form__footer">
 					<div class="single-product__modal__dialog__form__response"></div>
-					<button type="submit" class="single-product__modal__dialog__submit button button--primary button--medium">Submit</button>
+					<button type="submit" class="single-product__modal__dialog__submit button button--primary button--medium"><?php pll_e('Submit'); ?></button>
 				</div>
 			</form>
 		</div>

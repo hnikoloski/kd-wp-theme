@@ -144,6 +144,7 @@
                                 border: 1px solid #111;
                                 font-size: 1.4rem;
                                 border-radius: 10px;
+                                color: #111;
 
                             }
                         }
@@ -531,6 +532,49 @@
                         @media (max-width: 768px) {
                             --columns: 2;
                         }
+
+                        &__image {
+                            img {
+                                height: 100%;
+                            }
+                        }
+                    }
+
+                    &.loading {
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 5%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 12rem;
+                            height: 12rem;
+                            background: url("../../assets/images/api-loader.svg");
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            z-index: 104;
+                            -webkit-animation: rotate-scale-down 1s linear infinite both;
+                            animation: rotate-scale-down 1s linear infinite both;
+
+                            @media (max-width: 768px) {
+                                left: calc(50% - 5rem);
+                            }
+                        }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(255, 255, 255, 0.8);
+                            z-index: 2;
+                            border-radius: 13px;
+                        }
                     }
                 }
 
@@ -713,5 +757,72 @@
                 }
             }
         }
+    }
+
+    .select2-selection {
+        background-color: transparent !important;
+        /* Background color */
+        border: 1px solid vars.$red !important;
+        /* Red border color */
+        border-radius: 4px;
+        /* Rounded corners */
+        padding: 0.8rem 1.3rem;
+        /* Padding */
+        height: auto !important;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 768px) {
+            padding: .6rem 2.1rem .6rem 1.3rem;
+            border-color: #000 !important;
+            border-radius: 10px !important;
+        }
+    }
+
+    /* Style the text inside the select box */
+    .select2-selection__rendered {
+        color: #111;
+        font-size: 2.2rem;
+
+        @media (max-width: 768px) {
+            font-size: 1.4rem !important;
+            line-height: 1.2 !important;
+        }
+    }
+
+    /* Style the dropdown arrow */
+    .select2-selection__arrow {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        right: 1rem;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2212%22%20height%3D%226%22%20viewBox%3D%220%200%2012%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M10.9586%200.660073C10.8805%200.583747%2010.7756%200.541016%2010.6664%200.541016C10.5571%200.541016%2010.4522%200.583747%2010.3741%200.660073L5.99998%204.92395L1.62673%200.660073C1.5486%200.583746%201.44371%200.541015%201.33448%200.541015C1.22526%200.541015%201.12037%200.583746%201.04223%200.660072C1.00413%200.697169%200.97385%200.741523%200.953173%200.790515C0.932495%200.839507%200.921843%200.892145%200.921843%200.945322C0.921843%200.998499%200.932495%201.05114%200.953173%201.10013C0.97385%201.14912%201.00413%201.19348%201.04223%201.23057L5.69461%205.76482C5.77631%205.84446%205.88589%205.88903%205.99998%205.88903C6.11408%205.88903%206.22366%205.84446%206.30536%205.76482L10.9577%201.23057C10.9958%201.19348%2011.0261%201.14912%2011.0468%201.10013C11.0675%201.05114%2011.0781%200.9985%2011.0781%200.945323C11.0781%200.892146%2011.0675%200.839508%2011.0468%200.790515C11.0261%200.741523%2010.9958%200.697169%2010.9577%200.660073L10.9586%200.660073Z%22%20fill%3D%22black%22%20fill-opacity%3D%220.63%22/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        width: 1.4rem;
+        height: 1.4rem;
+
+        b {
+            display: none;
+        }
+    }
+
+    /* Optional: Style the dropdown list */
+    .select2-dropdown {
+        border: 2px solid vars.$red;
+        border-radius: 4px;
+    }
+
+    .select2-results__option {
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .select2-results__option--highlighted {
+        background-color: vars.$red !important;
+        color: white !important;
+    }
+
+    .select2-search--dropdown {
+        display: none;
     }
 }

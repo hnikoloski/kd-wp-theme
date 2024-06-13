@@ -2,7 +2,8 @@
 // Template Name: Products Page
 
 get_header(); ?>
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <div class="products-page">
     <div class="products-page__hero">
@@ -23,12 +24,12 @@ get_header(); ?>
             <div class="hide-desktop products-page__content__filters__mob-bar">
                 <div class="products-page__content__products__header__actions__sort">
                     <select name="sort" id="sort-mob">
-                        <option value="date">Newest</option>
-                        <option value="price-asc">Price: Low to High</option>
-                        <option value="price-desc">Price: High to Low</option>
+                        <option value="date"><?php pll_e('Newest'); ?></option>
+                        <option value="price-asc"><?php pll_e('Price: Low to High'); ?></option>
+                        <option value="price-desc"><?php pll_e('Price: High to Low'); ?></option>
                     </select>
                 </div>
-                <div class="products-page__content-filters__brand__toggle-mob">Brands <i></i></div>
+                <div class="products-page__content-filters__brand__toggle-mob"><?php pll_e('Brands'); ?> <i></i></div>
                 <div class="products-page__brands-sidebar">
                     <div class="products-page__brands-sidebar__header">
                         <p>Brands</p>
@@ -84,7 +85,7 @@ get_header(); ?>
             </div>
         </div>
         <div class="products-page__content-filters__category">
-            <h2 class="products-page__content-filters__category__title">Product Category</h2>
+            <h2 class="products-page__content-filters__category__title"><?php pll_e('Product Category'); ?></h2>
             <ul class="products-page__content-filters__category__list">
                 <?php
                 $woo_product_categories = get_terms(array(
@@ -111,7 +112,7 @@ get_header(); ?>
             </ul>
         </div>
         <div class="products-page__content-filters__brand">
-            <p class="products-page__content-filters__brand__toggle">Choose a Brand</p>
+            <p class="products-page__content-filters__brand__toggle"><?php pll_e('Choose a Brand'); ?></p>
             <ul class="products-page__content-filters__brand__list">
                 <?php
                 //<li class="products-page__content-filters__brand__list__item" data-brand="${brand.id}">${brand.name}</li>
@@ -164,7 +165,7 @@ get_header(); ?>
 
         <div class="products-page__content__products">
             <div class="products-page__content__products__header">
-                <h2 class="products-page__content__products__header__title">Products</h2>
+                <h2 class="products-page__content__products__header__title"><?php pll_e('Products'); ?></h2>
                 <div class="products-page__content__products__header__actions">
                     <ul class="products-page__content__products__header__actions__grid-selector">
                         <li class="products-page__content__products__header__actions__grid-selector__item" data-grid="2">
@@ -178,11 +179,11 @@ get_header(); ?>
                         </li>
                     </ul>
                     <div class="products-page__content__products__header__actions__sort">
-                        <p>Sort by:</p>
+                        <p><?php pll_e('Sort by:'); ?></p>
                         <select name="sort" id="sort">
-                            <option value="date">Newest</option>
-                            <option value="price-asc">Price: Low to High</option>
-                            <option value="price-desc">Price: High to Low</option>
+                            <option value="date"><?php pll_e('Newest'); ?></option>
+                            <option value="price-asc"><?php pll_e('Price: Low to High'); ?></option>
+                            <option value="price-desc"><?php pll_e('Price: High to Low'); ?></option>
                         </select>
                     </div>
                 </div>

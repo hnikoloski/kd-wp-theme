@@ -1,10 +1,12 @@
 <?php
+// Template Name: Brands Archive
+
 get_header();
 ?>
 
 <main id="primary" class="site-main brands-archive">
     <div class="brands-archive__hero">
-        <h1 class="brands-archive__hero__title">Brands</h1>
+        <h1 class="brands-archive__hero__title"><?php the_title(); ?></h1>
     </div>
 
     <div class="brands-archive__content">

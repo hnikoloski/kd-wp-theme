@@ -68,7 +68,10 @@ jQuery(document).ready(function ($) {
         $productsParams.find('input[name="sort"]').val($(this).val());
         fetchProducts(); // Fetch products after sorting
     });
-
+    $sortSelect.select2({
+        // Disable the search box
+        searching: false,
+    });
     function updateBrandSelection() {
         const selectedBrands = [];
         $brandsList.find('.active').each(function () {
@@ -82,7 +85,7 @@ jQuery(document).ready(function ($) {
         const categoryId = $productsParams.find('input[name="category"]').val();
         const brands = $productsParams.find('input[name="brand"]').val();
         const currentPage = $productsParams.find('input[name="page"]').val() || 1;
-
+        $resultsContainer.addClass('loading');
         axios.get(`${apiBase}/category-brand-products`, { params: { category: categoryId, brands: brands, page: currentPage, sort: $sortSelect.val() } })
             .then(response => {
                 const { products, total, max_num_pages } = response.data;
@@ -110,6 +113,9 @@ jQuery(document).ready(function ($) {
             .catch(error => {
                 console.error('Error fetching products:', error);
                 $resultsContainer.append('<div>Error loading products.</div>');
+            })
+            .finally(() => {
+                $resultsContainer.removeClass('loading');
             });
     }
 

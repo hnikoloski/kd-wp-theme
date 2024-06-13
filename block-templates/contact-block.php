@@ -38,23 +38,24 @@ endif;
             <h2 class="kd-contact-block__title"><?php the_field('title'); ?></h2>
             <form class="kd-contact-block__form" novalidate>
                 <div class="kd-contact-block__form-group">
-                    <label for="name">Full Name</label>
+                    <label for="name"><?php pll_e('Full Name'); ?></label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">
                 </div>
                 <div class="kd-contact-block__form-group">
-                    <label for="email">E-Mail Address</label>
+                    <label for="email"><?php pll_e('E-Mail Address'); ?></label>
                     <input type="email" id="email" name="email" required placeholder="your@email.com">
                 </div>
                 <div class="kd-contact-block__form-group">
-                    <label for="message">Phone Number</label>
+                    <label for="message"><?php pll_e('Phone Number'); ?></label>
                     <input type="text" id="phone" name="phone" required placeholder="+38975123456">
                 </div>
                 <div class="kd-contact-block__form-group">
-                    <label for="message">Message</label>
+                    <label for="message"><?php pll_e('Message'); ?></label>
                     <textarea id="message" name="message" required placeholder="Your message here"></textarea>
                 </div>
                 <div class="kd-contact-block__form__footer">
-                    <button type="submit" class="kd-contact-block__submit button button--primary">Send</button>
+                    <button type="submit" class="kd-contact-block__submit button button--primary"><?php pll_e('Send'); ?></button>
+
                     <div class="kd-contact-block__form__response"></div>
                 </div>
             </form>

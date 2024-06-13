@@ -30,23 +30,52 @@ jQuery(document).ready(function ($) {
         $("#masthead .main-navigation").removeClass("active");
     });
 
+    // Check if mobile
+    if ($(window).width() < 769) {
+        const searchTrigger = $('#search-trigger');
+
+        // Move the search form before .header-phone-number
+        searchTrigger.insertBefore('.header-phone-number');
+
+        const searchForm = $('#masthead .search-form');
+        // Move the search form before the closing body tag and add a class
+        searchForm.appendTo('body').addClass('search-form--mobile');
+    }
 
     // Attach event handler for the search button click
-    $("#masthead .main-navigation #search-trigger").on("click", function (e) {
-        e.preventDefault();
+    // check if on desktop
+    if ($(window).width() < 769) {
 
-        $(this).toggle();
-        // Toggle the 'active' state of the form
-        $("#masthead .main-navigation ul").toggle();
+        $(" #search-trigger").on("click", function (e) {
+            e.preventDefault();
 
-        $('#masthead .main-navigation .search-form').toggleClass('active');
-    });
+            // Toggle the 'active' state of the form
 
-    $('#masthead .main-navigation .search-close').on('click', function (e) {
-        e.preventDefault();
-        $("#masthead .main-navigation #search-trigger").toggle();
-        $("#masthead .main-navigation ul").toggle();
-        $('#masthead .main-navigation .search-form').toggleClass('active');
-    });
+            $('.search-form--mobile').toggleClass('active');
+        });
+
+        $('.search-close').on('click', function (e) {
+            e.preventDefault();
+
+            $('.search-form--mobile').toggleClass('active');
+        });
+    } else {
+        $("#masthead .main-navigation #search-trigger").on("click", function (e) {
+            e.preventDefault();
+
+            $(this).toggle();
+            // Toggle the 'active' state of the form
+            $("#masthead .main-navigation ul").toggle();
+
+            $('#masthead .main-navigation .search-form').toggleClass('active');
+        });
+
+        $('#masthead .main-navigation .search-close').on('click', function (e) {
+            e.preventDefault();
+            $("#masthead .main-navigation #search-trigger").toggle();
+            $("#masthead .main-navigation ul").toggle();
+            $('#masthead .main-navigation .search-form').toggleClass('active');
+        });
+    }
 
 });

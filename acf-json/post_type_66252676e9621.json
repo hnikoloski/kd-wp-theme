@@ -57,7 +57,10 @@
     "rest_namespace": "wp\/v2",
     "rest_controller_class": "WP_REST_Posts_Controller",
     "menu_position": "",
-    "menu_icon": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-post"
+    },
     "rename_capabilities": false,
     "singular_capability_name": "post",
     "plural_capability_name": "posts",
@@ -68,10 +71,11 @@
         "thumbnail"
     ],
     "taxonomies": "",
-    "has_archive": true,
-    "has_archive_slug": "brands",
+    "has_archive": false,
+    "has_archive_slug": "",
     "rewrite": {
-        "permalink_rewrite": "post_type_key",
+        "permalink_rewrite": "custom_permalink",
+        "slug": "brands\/",
         "with_front": "1",
         "feeds": "0",
         "pages": "1"
@@ -82,5 +86,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1714474002
+    "modified": 1718196681
 }

@@ -3,8 +3,13 @@ import axios from 'axios';
 jQuery(document).ready(function ($) {
     let home_url = window.location.origin;
     let api_url = home_url + '/wp-json/tamtam/v1/auto-complete-search';
-
-    const searchInput = $('#masthead .main-navigation .search-form label input');
+    // Check if mobile 
+    let searchInput;
+    if ($(window).width() < 769) {
+        searchInput = $('.search-form--mobile label input');
+    } else {
+        searchInput = $('#masthead .main-navigation .search-form label input');
+    }
 
     searchInput.on('keyup', function () {
         let searchValue = $(this).val();

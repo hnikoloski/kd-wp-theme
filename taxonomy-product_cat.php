@@ -7,6 +7,8 @@ $currentTerm = get_term($currentCatId);
 // Check if this is a top level category or a subcategory
 $isTopLevel = $currentTerm->parent == 0 ? true : false;
 ?>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <div class="products-page">
     <div class="products-page__hero">
         <h1 class="products-page__hero__title"><?php echo $currentTerm->name; ?></h1>
@@ -29,15 +31,15 @@ $isTopLevel = $currentTerm->parent == 0 ? true : false;
             <div class="hide-desktop products-page__content__filters__mob-bar">
                 <div class="products-page__content__products__header__actions__sort">
                     <select name="sort" id="sort-mob">
-                        <option value="date">Newest</option>
-                        <option value="price-asc">Price: Low to High</option>
-                        <option value="price-desc">Price: High to Low</option>
+                        <option value="date"><?php pll_e('Newest'); ?></option>
+                        <option value="price-asc"><?php pll_e('Price: Low to High'); ?></option>
+                        <option value="price-desc"><?php pll_e('Price: High to Low'); ?></option>
                     </select>
                 </div>
-                <div class="products-page__content-filters__brand__toggle-mob">Brands <i></i></div>
+                <div class="products-page__content-filters__brand__toggle-mob"><?php pll_e('Brands'); ?> <i></i></div>
                 <div class="products-page__brands-sidebar">
                     <div class="products-page__brands-sidebar__header">
-                        <p>Brands</p>
+                        <p><?php pll_e('Brands'); ?></p>
                         <i></i>
                     </div>
                     <ul class="products-page__content-filters__brand__list">
@@ -88,35 +90,41 @@ $isTopLevel = $currentTerm->parent == 0 ? true : false;
                     </ul>
                 </div>
             </div>
+
             <div class="products-page__content-filters__category">
-                <h2 class="products-page__content-filters__category__title">Subcategory</h2>
-                <ul class="products-page__content-filters__category__list">
-                    <?php
-                    $woo_product_categories = get_terms('product_cat', array(
-                        'hide_empty' => false,
-                        'parent' => $currentCatId,
-                    ));
-                    foreach ($woo_product_categories as $woo_product_category) {
-                        $is_active = $currentCatId == $woo_product_category->term_id ? 'active' : '';
-                    ?>
-                        <li class="products-page__content-filters__category__item  <?php echo $is_active; ?> <?php echo !$isTopLevel ? 'follow-link' : ''; ?>" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
-                            <?php
-                            $thumbnail_id = get_term_meta($woo_product_category->term_id, 'thumbnail_id', true);
-                            $image_url = wp_get_attachment_url($thumbnail_id);
-                            if (!$image_url) {
-                                $image_url = wc_placeholder_img_src();
-                            }
-                            ?>
-                            <img src="<?php echo $image_url; ?>" alt="<?php echo $woo_product_category->name; ?>">
-                            <p><?php echo $woo_product_category->name; ?></p>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                </ul>
+                <?php if ($isTopLevel) : ?>
+                    <h2 class="products-page__content-filters__category__title"><?php pll_e('Subcategory'); ?></h2>
+                <?php endif; ?>
+
+                <?php if ($isTopLevel) : ?>
+                    <ul class="products-page__content-filters__category__list">
+                        <?php
+                        $woo_product_categories = get_terms('product_cat', array(
+                            'hide_empty' => false,
+                            'parent' => $currentCatId,
+                        ));
+                        foreach ($woo_product_categories as $woo_product_category) {
+                            $is_active = $currentCatId == $woo_product_category->term_id ? 'active' : '';
+                        ?>
+                            <li class="products-page__content-filters__category__item  <?php echo $is_active; ?> <?php echo !$isTopLevel ? 'follow-link' : 'follow-link'; ?>" data-category="<?php echo $woo_product_category->term_id; ?>" data-link="<?php echo get_term_link($woo_product_category); ?>">
+                                <?php
+                                $thumbnail_id = get_term_meta($woo_product_category->term_id, 'thumbnail_id', true);
+                                $image_url = wp_get_attachment_url($thumbnail_id);
+                                if (!$image_url) {
+                                    $image_url = wc_placeholder_img_src();
+                                }
+                                ?>
+                                <img src="<?php echo $image_url; ?>" alt="<?php echo $woo_product_category->name; ?>">
+                                <p><?php echo $woo_product_category->name; ?></p>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                <?php endif; ?>
             </div>
             <div class="products-page__content-filters__brand">
-                <p class="products-page__content-filters__brand__toggle">Choose a Brand</p>
+                <p class="products-page__content-filters__brand__toggle"><?php pll_e('Choose a Brand'); ?></p>
                 <ul class="products-page__content-filters__brand__list">
                     <?php
                     $brands = array();
@@ -175,7 +183,7 @@ $isTopLevel = $currentTerm->parent == 0 ? true : false;
 
         <div class="products-page__content__products">
             <div class="products-page__content__products__header">
-                <h2 class="products-page__content__products__header__title">Products</h2>
+                <h2 class="products-page__content__products__header__title"><?php pll_e('Products'); ?></h2>
                 <div class="products-page__content__products__header__actions">
                     <ul class="products-page__content__products__header__actions__grid-selector">
                         <li class="products-page__content__products__header__actions__grid-selector__item" data-grid="2">
@@ -189,11 +197,11 @@ $isTopLevel = $currentTerm->parent == 0 ? true : false;
                         </li>
                     </ul>
                     <div class="products-page__content__products__header__actions__sort">
-                        <p>Sort by:</p>
+                        <p><?php pll_e('Sort by:'); ?></p>
                         <select name="sort" id="sort">
-                            <option value="date">Newest</option>
-                            <option value="price-asc">Price: Low to High</option>
-                            <option value="price-desc">Price: High to Low</option>
+                            <option value="date"><?php pll_e('Newest'); ?></option>
+                            <option value="price-asc"><?php pll_e('Price: Low to High'); ?></option>
+                            <option value="price-desc"><?php pll_e('Price: High to Low'); ?></option>
                         </select>
                     </div>
                 </div>
